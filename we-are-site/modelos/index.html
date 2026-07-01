@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelos | We Are</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#00d4ff;--secondary:#8b5cf6;--bg:#0a0a0f;--bg-card:#1a1a2e;--text:#fff;--text-muted:#94a3b8;--border:#1e293b;--radius:16px;--fp:"Sora",sans-serif;--fs:"Inter",sans-serif}
+body{font-family:var(--fs);background:var(--bg);color:var(--text);min-height:100vh}
+header{text-align:center;padding:4rem 2rem 2rem}
+header h1{font-family:var(--fp);font-size:clamp(2rem,4vw,3rem);font-weight:800;margin-bottom:.5rem}
+header h1 span{background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+header p{color:var(--text-muted);font-size:1rem}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto;padding:2rem}
+.model-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer;text-decoration:none;color:inherit;display:block}
+.model-card:hover{transform:translateY(-8px);border-color:rgba(0,212,255,0.25);box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.model-card-img{width:100%;height:200px;object-fit:cover;display:block}
+.model-card-body{padding:1.5rem}
+.model-card-body h3{font-family:var(--fp);font-size:1.15rem;font-weight:700;margin-bottom:.25rem}
+.model-card-body p{color:var(--text-muted);font-size:.85rem;line-height:1.6}
+.model-tag{display:inline-block;padding:.2rem .7rem;background:rgba(0,212,255,0.1);border-radius:50px;font-size:.65rem;color:var(--primary);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-top:.5rem}
+footer{text-align:center;padding:2rem;color:var(--text-muted);font-size:.8rem;border-top:1px solid var(--border);margin-top:2rem}
+footer a{color:var(--primary);text-decoration:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>Modelos <span>We Are</span></h1>
+  <p>Clique em um modelo para visualizar a demonstração completa.</p>
+</header>
+<div class="models-grid" id="grid"></div>
+<footer>&copy; 2026 We Are Ag&ecircncia Digital. <a href="../index.html">Voltar ao site</a></footer>
+<script>
+const models=[
+  {name:"BarberKing",tagline:"Barbearia Premium",niche:"Barbearia",img:"https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600&q=80",url:"barbearia",color:"#c49b3f"},
+  {name:"ModaLuxo",tagline:"Moda Feminina Premium",niche:"Moda",img:"https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80",url:"moda-feminina",color:"#e75480"},
+  {name:"CarDealer",tagline:"Loja de Carros Premium",niche:"Loja de Carros",img:"https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80",url:"loja-de-carros",color:"#dc2626"},
+  {name:"AutoPrime",tagline:"Mecânica Especializada",niche:"Automotivo",img:"https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80",url:"mecanica",color:"#ef4444"},
+  {name:"SolarPrime",tagline:"Energia Solar Sustentável",niche:"Energia",img:"https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80",url:"energia-solar",color:"#22c55e"},
+  {name:"VidaFit",tagline:"Academia & Bem-Estar",niche:"Fitness",img:"https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80",url:"academia",color:"#22c55e"},
+  {name:"Saúde+",tagline:"Clínica Médica",niche:"Saúde",img:"https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&q=80",url:"clinica",color:"#0ea5e9"},
+  {name:"Home Vision",tagline:"Imobiliária Premium",niche:"Imobiliário",img:"https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&q=80",url:"imobiliaria",color:"#c4a35a"},
+  {name:"Sabor & Arte",tagline:"Confeitaria Artesanal",niche:"Gastronomia",img:"https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=600&q=80",url:"confeitaria",color:"#d4767a"},
+  {name:"Agência Marketing",tagline:"Estratégia & Resultados",niche:"Agência Digital",img:"https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80",url:"agencia-marketing",color:"#fed136"},
+  {name:"TechCore",tagline:"Inovação & Tecnologia",niche:"Tecnologia",img:"https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80",url:"tech-startup",color:"#6366f1"},
+  {name:"Advocacia & Justiça",tagline:"Direito Empresarial",niche:"Advocacia",img:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&q=80",url:"advocacia",color:"#1e40af"},
+  {name:"ConsultPro",tagline:"Consultoria Empresarial",niche:"Consultoria",img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",url:"consultoria",color:"#0891b2"}
+];
+const g=document.getElementById("grid");
+g.innerHTML=models.map(m=>`<a class="model-card" href="${m.url}/" style="--accent:${m.color}">
+  <img class="model-card-img" src="${m.img}" alt="${m.name}" loading="lazy">
+  <div class="model-card-body">
+    <h3>${m.name}</h3>
+    <p>${m.tagline}</p>
+    <div class="model-tag">${m.niche}</div>
+  </div>
+</a>`).join("");
+</script>
+</body>
+</html>
