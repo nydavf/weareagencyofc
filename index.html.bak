@@ -1,0 +1,709 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>We Are - Transformamos ideias em marcas digitais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+ <style>
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#00d4ff;--secondary:#8b5cf6;--accent:#6d28d9;--bg:#0a0a0f;--bg-alt:#12121a;--bg-card:#1a1a2e;--text:#fff;--text-muted:#94a3b8;--border:#1e293b;--glass:rgba(255,255,255,0.05);--shadow:0 8px 32px rgba(0,0,0,0.4);--radius:16px;--radius-sm:10px;--transition:all .4s cubic-bezier(.25,.46,.45,.94);--fp:'Poppins',sans-serif;--fs:'Inter',sans-serif}
+.light-mode{--bg:#f8fafc;--bg-alt:#f1f5f9;--bg-card:#fff;--text:#0f172a;--text-muted:#475569;--border:#e2e8f0;--glass:rgba(0,0,0,0.03);--shadow:0 8px 32px rgba(0,0,0,0.08)}
+html{scroll-behavior:smooth}body{font-family:var(--fs);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;transition:var(--transition)}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}section{padding:100px 0;position:relative}
+.section-label{font-family:var(--fp);font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--primary);margin-bottom:12px;display:block}
+.section-title{font-family:var(--fp);font-size:clamp(28px,5vw,48px);font-weight:800;line-height:1.15;margin-bottom:20px}
+.section-title span{background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-desc{color:var(--text-muted);font-size:17px;max-width:600px;line-height:1.8}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:50px;font-family:var(--fp);font-weight:600;font-size:15px;border:none;cursor:pointer;transition:var(--transition);position:relative;overflow:hidden}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;box-shadow:0 4px 25px rgba(0,212,255,0.3)}.btn-primary:hover{transform:translateY(-5px) scale(1.04);box-shadow:0 12px 50px rgba(0,212,255,0.55)}
+.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border)}.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-5px) scale(1.04)}
+.btn-whatsapp{background:#25d366;color:#fff}.btn-whatsapp:hover{background:#1da851;transform:translateY(-3px)}
+#loading{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}#loading.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{font-family:var(--fp);font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:30px}
+.loader-bar-wrap{width:200px;height:3px;background:var(--border);border-radius:3px;overflow:hidden}
+.loader-bar{height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:3px;animation:loaderAnim 1.8s ease forwards}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes loaderAnim{0%{width:0}50%{width:70%}100%{width:100%}}
+@keyframes pgHeroIn{from{opacity:0;transform:translateY(40px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes pgZoomBadge{from{opacity:0;transform:scale(0.5) rotate(-10deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes pgSlideText{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pgZoomBg{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes pgSectionIn{from{opacity:0;transform:translateY(60px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes pgCardPop{from{opacity:0;transform:translateY(40px) scale(0.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes pgBadgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes pgFeatFade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pgIconSpin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.2)}100%{transform:rotate(360deg) scale(1)}}
+@keyframes pgCardSlide{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pgTestimonialIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pgTitleReveal{from{opacity:0;transform:translateY(20px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes popIn{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes wppPulse{0%,100%{box-shadow:0 4px 25px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 45px rgba(37,211,102,0.7)}}
+@keyframes zoomIn{from{opacity:0;transform:scale(0.8)}}
+@keyframes zoomOut{from{opacity:0;transform:scale(1.2)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0) rotate(2deg)}}
+@keyframes morph{0%,100%{border-radius:40% 60% 70% 30% 50% 40% 60% 30%;}}
+@keyframes pulse{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.05);filter:brightness(1.1)}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(-50px)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(50px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}}
+@keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pgHeroIn{from{opacity:0;transform:translateY(40px) scale(0.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes pgZoomBadge{from{opacity:0;transform:scale(0.5) rotate(-10deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes pgSlideText{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pgZoomBg{from{transform:scale(1)}to{transform:scale(1.08)}}
+.pg-section{opacity:0;animation:pgSectionIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards;animation-delay:0.3s}
+.pg-section:nth-child(2){animation-delay:0.2s}.pg-section:nth-child(3){animation-delay:0.4s}.pg-section:nth-child(4){animation-delay:0.6s}.pg-section:nth-child(5){animation-delay:0.8s}
+@keyframes pgSectionIn{from{opacity:0;transform:translateY(60px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.catalog-item{opacity:0;animation:pgCardPop 0.6s cubic-bezier(0.16,1,0.3,1) forwards;transform-origin:center bottom}
+.catalog-item:nth-child(1){animation-delay:0.05s}.catalog-item:nth-child(2){animation-delay:0.1s}.catalog-item:nth-child(3){animation-delay:0.15s}.catalog-item:nth-child(4){animation-delay:0.2s}.catalog-item:nth-child(5){animation-delay:0.25s}.catalog-item:nth-child(6){animation-delay:0.3s}.catalog-item:nth-child(7){animation-delay:0.35s}.catalog-item:nth-child(8){animation-delay:0.4s}.catalog-item:nth-child(9){animation-delay:0.45s}.catalog-item:nth-child(10){animation-delay:0.5s}.catalog-item:nth-child(11){animation-delay:0.55s}.catalog-item:nth-child(12){animation-delay:0.6s}
+@keyframes pgCardPop{from{opacity:0;transform:translateY(40px) scale(0.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+.catalog-item{transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}.catalog-item:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 24px 64px rgba(0,0,0,0.4)}.catalog-item img{transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}.catalog-item:hover img{transform:scale(1.12)}.catalog-item .badge-overlay{position:absolute;top:10px;left:10px;z-index:1;animation:pgBadgePulse 2s ease-in-out infinite}
+@keyframes pgBadgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.pg-feat{opacity:0;animation:pgFeatFade 0.6s ease forwards;transform:translateY(20px)}.pg-feat:nth-child(1){animation-delay:0.1s}.pg-feat:nth-child(2){animation-delay:0.2s}.pg-feat:nth-child(3){animation-delay:0.3s}.pg-feat:nth-child(4){animation-delay:0.4s}.pg-feat:nth-child(5){animation-delay:0.5s}.pg-feat:nth-child(6){animation-delay:0.6s}
+@keyframes pgFeatFade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.pg-feat:hover i{animation:pgIconSpin 0.6s ease}.pg-feat i{transition:all 0.3s ease}
+@keyframes pgIconSpin{0%{transform:rotate(0) scale(1)}50%{transform:rotate(180deg) scale(1.2)}100%{transform:rotate(360deg) scale(1)}}
+.pg-card,.pg-price-card{opacity:0;animation:pgCardSlide 0.6s cubic-bezier(0.16,1,0.3,1) forwards}
+.pg-card:nth-child(1),.pg-price-card:nth-child(1){animation-delay:0.08s}.pg-card:nth-child(2),.pg-price-card:nth-child(2){animation-delay:0.16s}.pg-card:nth-child(3),.pg-price-card:nth-child(3){animation-delay:0.24s}.pg-card:nth-child(4),.pg-price-card:nth-child(4){animation-delay:0.32s}.pg-card:nth-child(5),.pg-price-card:nth-child(5){animation-delay:0.4s}.pg-card:nth-child(6),.pg-price-card:nth-child(6){animation-delay:0.48s}
+@keyframes pgCardSlide{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+.pg-price-card{transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}.pg-price-card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 24px 64px rgba(0,0,0,0.4)}.pg-price-card.popular{transform:scale(1.05)}.pg-price-card.popular:hover{transform:scale(1.08) translateY(-5px)}
+.pg-testimonial{opacity:0;animation:pgTestimonialIn 0.6s ease forwards;transform:translateX(-20px)}.pg-testimonial:nth-child(1){animation-delay:0.1s}.pg-testimonial:nth-child(2){animation-delay:0.3s}
+@keyframes pgTestimonialIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+.btn-filter{transition:all 0.3s cubic-bezier(0.16,1,0.3,1)}.btn-filter:hover{transform:translateY(-2px) scale(1.05)}.btn-filter.active{transform:scale(1.05);box-shadow:0 4px 16px rgba(0,0,0,0.3)}
+.pg-section-title{animation:pgTitleReveal 0.8s ease forwards;opacity:0;transform:translateY(20px)}
+@keyframes pgTitleReveal{from{opacity:0;transform:translateY(20px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modalidade-item,.agenda-item{opacity:0;animation:pgCardPop 0.5s ease forwards}
+.modalidade-item:nth-child(1){animation-delay:0.05s}.modalidade-item:nth-child(2){animation-delay:0.1s}.modalidade-item:nth-child(3){animation-delay:0.15s}.modalidade-item:nth-child(4){animation-delay:0.2s}.modalidade-item:nth-child(5){animation-delay:0.25s}.modalidade-item:nth-child(6){animation-delay:0.3s}.modalidade-item:nth-child(7){animation-delay:0.35s}.modalidade-item:nth-child(8){animation-delay:0.4s}
+.btn-voltar{transition:all 0.3s ease}.btn-voltar:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.pg-price-card{background:var(--bg-card);border:2px solid var(--border);border-radius:var(--radius);padding:30px;text-align:center;transition:var(--transition);position:relative}.pg-price-card.popular{border-color:var(--accent-color,var(--primary))}.pg-price-card.popular::before{content:'POPULAR';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent-color,var(--primary));color:#fff;font-size:11px;font-weight:700;padding:4px 16px;border-radius:50px;letter-spacing:1px}
+.pg-price-card h3{font-family:var(--fp);font-size:18px;font-weight:700;margin-bottom:8px}.pg-price-card .price{font-family:var(--fp);font-size:32px;font-weight:800;color:var(--accent-color,var(--primary));margin-bottom:16px}.pg-price-card .price small{font-size:14px;font-weight:400;color:var(--text-muted)}
+.pg-price-card ul{list-style:none;margin-bottom:20px}.pg-price-card ul li{padding:8px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-muted)}.pg-price-card ul li i{color:var(--accent-color,var(--primary));margin-right:8px}
+.pg-price-card .btn{width:100%;justify-content:center}
+footer{background:var(--bg-alt);border-top:1px solid var(--border);padding:60px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}footer h3{font-family:var(--fp);font-size:20px;font-weight:700;margin-bottom:16px}footer h4{font-weight:600;font-size:16px;margin-bottom:14px;color:var(--text)}footer p{color:var(--text-muted);font-size:14px;line-height:1.8;max-width:320px}footer ul li{margin-bottom:10px}footer ul li a{color:var(--text-muted);font-size:14px;transition:var(--transition)}footer ul li a:hover{color:var(--primary)}
+.footer-social{display:flex;gap:12px;margin-top:16px}.footer-social a{width:40px;height:40px;border-radius:50%;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:var(--transition)}.footer-social a:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}.footer-bottom p{font-size:13px;color:var(--text-muted)}
+.back-top{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border:none;cursor:pointer;font-size:16px;transition:var(--transition)}.back-top:hover{transform:translateY(-5px);box-shadow:0 8px 30px rgba(0,212,255,0.3)}
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 25px rgba(37,211,102,0.4);transition:var(--transition);animation:wppPulse 2s ease-in-out infinite}.whatsapp-float:hover{transform:scale(1.1);box-shadow:0 8px 40px rgba(37,211,102,0.6)}
+@keyframes wppPulse{0%,100%{box-shadow:0 4px 25px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 45px rgba(37,211,102,0.7)}}
+.popup-overlay{position:fixed;inset:0;z-index:10001;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}.popup-overlay.active{display:flex}
+.popup{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);max-width:440px;width:100%;padding:40px 32px;position:relative;animation:popIn .3s ease}@keyframes popIn{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+.popup-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--glass);border:1px solid var(--border);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--transition)}.popup-close:hover{background:var(--primary);color:#fff}
+.popup h3{font-family:var(--fp);font-size:22px;font-weight:700;margin-bottom:6px}.popup .popup-price{font-size:32px;font-weight:800;color:var(--primary);margin:12px 0}.popup .popup-desc{color:var(--text-muted);font-size:14px;margin-bottom:20px}
+.price-option.active{border-color:var(--primary);background:rgba(0,212,255,0.1);color:var(--primary)}
+.popup .qr-wrap{display:flex;justify-content:center;margin:20px 0}.popup .qr-wrap img{width:200px;height:200px;border-radius:12px;background:#fff;padding:8px}
+.popup .pix-key-info{text-align:center;margin:16px 0}.popup .pix-key-info p{font-size:13px;color:var(--text-muted);margin-bottom:8px}
+.popup .popup-actions{display:flex;flex-direction:column;gap:10px}.popup .popup-actions .btn{justify-content:center;width:100%}
+.popup .popup-after-pay{text-align:center;margin-top:16px;padding:14px;background:var(--glass);border-radius:var(--radius-sm);font-size:14px;color:var(--text-muted)}
+.settings-overlay{position:fixed;inset:0;z-index:10002;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}.settings-overlay.active{display:flex}
+.settings-panel{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);max-width:520px;width:100%;max-height:90vh;overflow-y:auto;padding:40px 32px;position:relative;animation:popIn .3s ease}
+.settings-panel h2{font-family:var(--fp);font-size:24px;font-weight:700;margin-bottom:20px}
+.settings-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}.settings-tab{padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px;font-weight:500;transition:var(--transition);font-family:var(--fs)}.settings-tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}.settings-tab:hover:not(.active){border-color:var(--primary);color:var(--text)}
+.settings-content{display:none}.settings-content.active{display:block}
+.settings-form{display:flex;flex-direction:column;gap:14px}.settings-form input{padding:12px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--bg);color:var(--text);font-family:var(--fs);font-size:15px;outline:none;transition:var(--transition)}.settings-form input:focus{border-color:var(--primary)}.settings-form .btn{justify-content:center;width:100%}.settings-form .error{color:#ef4444;font-size:13px;display:none}.settings-form .success-msg{color:#22c55e;font-size:14px;text-align:center;padding:12px;background:rgba(34,197,94,0.1);border-radius:var(--radius-sm);display:none}
+.settings-history{display:flex;flex-direction:column;gap:10px}.history-item{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:var(--radius-sm);border:1px solid var(--border);font-size:14px}.history-item .status{font-size:12px;padding:4px 12px;border-radius:50px;background:rgba(34,197,94,0.15);color:#22c55e}
+.settings-panel .toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border)}.toggle-row span{font-size:15px}
+.toggle-switch{width:48px;height:26px;border-radius:13px;background:var(--border);cursor:pointer;position:relative;transition:var(--transition)}.toggle-switch::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--text);transition:var(--transition)}.toggle-switch.active{background:var(--primary)}.toggle-switch.active::after{left:25px;background:#fff}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:992px){.hero-grid{grid-template-columns:1fr;text-align:center;gap:40px}.hero-sub{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}.about-wrap{grid-template-columns:1fr;text-align:center}.about-stats{justify-items:center}.contact-wrap{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:30px}.hero-visual{order:-1}.hero-card-float{display:none}}
+@media(max-width:768px){section{padding:60px 0}.nav-links{display:none;position:fixed;top:70px;left:20px;right:20px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;flex-direction:column;gap:16px;z-index:9998;box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-toggle{display:flex}.footer-grid{grid-template-columns:1fr;gap:24px}.services-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}.settings-panel{padding:24px 16px}.portfolio-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.container{padding:0 16px}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{justify-content:center}}
+
+</style>
+</head>
+<body>
+ <div id="loading">
+ <div class="loader-logo">WE ARE</div>
+ <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+ <div class="loader-text">CARREGANDO...</div>
+ </div>
+
+ <nav class="navbar" id="navbar">
+ <div class="container">
+ <a href="#hero" class="nav-logo"><img src="logo%20we%20are.jpeg" alt="We Are" />WE<span>ARE</span></a>
+ <ul class="nav-links" id="navLinks">
+ <li><a href="#hero">Home</a></li>
+ <li><a href="#about">Sobre</a></li>
+ <li><a href="#services">Serviço</a></li>
+ <li><a href="#portfolio">Portfolio</a></li>
+ <li><a href="#testimonials">Depoimentos</a></li>
+ <li><a href="#faq">FAQ</a></li>
+ <li><a href="#contact">Contato</a></li>
+ </ul>
+ <div class="nav-actions">
+ <button class="nav-settings" id="settingsBtn" title="Configurações"><i class="fas fa-cog"></i></button>
+ <button class="nav-toggle" id="navToggle" title="Menu"><i class="fas fa-bars"></i></button>
+ </div>
+ </div>
+ </nav>
+
+ <main id="mainContent">
+ <section id="hero">
+ <canvas id="particles-canvas"></canvas>
+ <div class="container">
+ <div class="hero-grid">
+ <div class="hero-text">
+ <div class="hero-badge"><i class="fas fa-rocket"></i> Agência de Serviços Digitais</div>
+ <h1 class="hero-title">Transformamos ideias em <span>marcas digitais</span> profissionais.</h1>
+ <p class="hero-sub">Sites profissionais para empresas que querem crescer online.</p>
+ <div class="hero-actions">
+ <a href="#services" class="btn btn-primary"><i class="fas fa-bolt"></i> Solicitar Serviço</a>
+ <a href="#portfolio" class="btn btn-outline"><i class="fas fa-images"></i> Ver Portfolio</a>
+ </div>
+ </div>
+ <div class="hero-visual">
+ <div class="hero-circle"></div>
+ <div class="hero-card-float"><i class="fas fa-globe"></i><span>Sites</span></div>
+ <div class="hero-card-float"><i class="fas fa-video"></i><span>Videos</span></div>
+ <div class="hero-card-float"><i class="fas fa-palette"></i><span>Design</span></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section id="about">
+ <div class="container">
+ <div class="about-wrap">
+ <div class="about-text reveal">
+ <span class="section-label">QUEM SOMOS</span>
+ <h2 class="section-title">Criamos soluções digitais que <span>impulsionam negócios</span></h2>
+ <p style="color:var(--text-muted);font-size:16px;line-height:1.9;margin-bottom:8px">A <strong style="color:var(--text)">We Are</strong> e uma agência especializada em criação de sites profissionais de alto padrão. Ajudamos empresas, lojas, restaurantes, barbearias e prestadores de serviço a fortalecerem sua presença digital com design exclusivo, performance e resultados.</p>
+ <p style="color:var(--text-muted);font-size:16px;line-height:1.9">Do design a entrega, oferecemos soluções completas com SEO, segurança, suporte técnico, integração WhatsApp e painel administrativo e tudo para transformar seu negócio em uma marca digital profissional de alto nível.</p>
+ <div class="about-stats">
+ <div class="stat-item"><div class="stat-number">120+</div><div class="stat-label">Projetos Entregues</div></div>
+ <div class="stat-item"><div class="stat-number">15+</div><div class="stat-label">Tipos de Site</div></div>
+ <div class="stat-item"><div class="stat-number">99%</div><div class="stat-label">Satisfação</div></div>
+ </div>
+ </div>
+ <div class="reveal" style="display:flex;align-items:center;justify-content:center">
+ <div style="width:100%;max-width:400px;aspect-ratio:1;border-radius:var(--radius);background:linear-gradient(135deg,var(--primary),var(--secondary),var(--accent));display:flex;align-items:center;justify-content:center;padding:40px"><img src="logo%20we%20are.jpeg" alt="We Are" style="width:100%;height:100%;object-fit:contain;border-radius:12px" /></div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section id="services">
+ <div class="container">
+ <div style="text-align:center;margin-bottom:20px" class="reveal">
+ <span class="section-label">NOSSO SERVIÇO</span>
+ <h2 class="section-title">Criação de sites profissionais <span>sob medida</span></h2>
+ <p class="section-desc" style="margin:0 auto">Fazemos o site ideal para o seu negócio: design profissional, alta performance, SEO otimizado, responsividade total, suporte técnico dedicado, segurança avançada, integração com WhatsApp, catálogo de produtos e painel administrativo completo.</p>
+ </div>
+ <div class="services-grid" id="servicesGrid"></div>
+ </div>
+ </section>
+
+ <section id="portfolio">
+ <div class="container">
+ <div style="text-align:center" class="reveal">
+ <span class="section-label">PORTFOLIO</span>
+ <h2 class="section-title">Alguns projetos que <span>criamos</span></h2>
+ <p class="section-desc" style="margin:0 auto">Conheca alguns sites que desenvolvemos. Cada projeto e único e feito sob medida.</p>
+ </div>
+ <div class="portfolio-grid" id="portfolioGrid"></div>
+ </div>
+ </section>
+
+ <section id="testimonials">
+ <div class="container">
+ <div style="text-align:center;margin-bottom:20px" class="reveal">
+ <span class="section-label">DEPOIMENTOS</span>
+ <h2 class="section-title">O que dizem <span>sobre nosso trabalho</span></h2>
+ </div>
+ <div class="testimonials-grid">
+ <div class="testimonial-card reveal">
+ <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+ <p>"O site ficou moderno e profissional. Superou nossas expectativas. Recomendo para qualquer negócio que queira crescer online."</p>
+ <div class="author">- Carlos Andrade</div>
+ </div>
+ <div class="testimonial-card reveal">
+ <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+ <p>"A edicao dos videos deixou nossa marca mais atrativa. O engajamento nas redes sociais aumentou muito depois do trabalho da We Are."</p>
+ <div class="author">- Juliana Martins</div>
+ </div>
+ <div class="testimonial-card reveal">
+ <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+ <p>"O atendimento foi rápido e o resultado ficou excelente. Entregaram antes do prazo e com qualidade profissional."</p>
+ <div class="author">- Ricardo Nascimento</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section id="faq">
+ <div class="container">
+ <div style="text-align:center;margin-bottom:20px" class="reveal">
+ <span class="section-label">FAQ</span>
+ <h2 class="section-title">Perguntas <span>frequentes</span></h2>
+ </div>
+ <div class="faq-wrap">
+ <div class="faq-item active reveal"><div class="faq-q">Quanto custa criar um site profissional? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Nossos sites profissionais custam entre <strong>R$ 1.000 e R$ 1.500</strong>, dependendo da complexidade. Oferecemos 3 opções: Básico (R$ 1.000), Profissional (R$ 1.250) e Premium (R$ 1.500). Todos incluem design profissional, SEO, responsividade, suporte técnico e painel administrativo.</div></div>
+ <div class="faq-item reveal"><div class="faq-q">O que está includo no site? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Todos os planos incluem: <strong>design profissional exclusivo, alta performance, SEO otimizado, responsividade total, segurança avançada, suporte técnico, integração com WhatsApp, painel administrativo e catálogo de produtos</strong>. O plano Premium adiciona recursos extras como galeria avançada e animações premium.</div></div>
+ <div class="faq-item reveal"><div class="faq-q">Como funciona o catálogo de produtos? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Seu site vem com um catálogo profissional com imagens, descrições, categorias, filtros de busca, destaque para mais vendidos e boteo de WhatsApp para cada produto. Seus clientes podem navegar e pedir diretamente pelo app.</div></div>
+ <div class="faq-item reveal"><div class="faq-q">Como contratar um serviço? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Clique em "Contratar", escolha entre os planos Básico, Profissional ou Premium, realize o pagamento via PIX e envie o comprovante pelo WhatsApp. Iniciamos o atendimento em até 24 horas com briefing completo.</div></div>
+ <div class="faq-item reveal"><div class="faq-q">Quanto tempo demora a entrega? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Sites profissionais levam de 5 a 10 dias úteis para ficar pronto. Isso inclui design, desenvolvimento, revisões e otimizações. Entregamos com qualidade garantida.</div></div>
+ <div class="faq-item reveal"><div class="faq-q">Tem suporte técnico após a entrega? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Sim! Oferecemos suporte técnico por 30 dias após a entrega. Também temos planos de manutenção mensal para manter seu site sempre atualizado, seguro e com suporte contínuo.</div></div>
+ <div class="faq-item reveal"><div class="faq-q">Meu site vai aparecer no Google? <i class="fas fa-chevron-down"></i></div><div class="faq-a">Sim! Todos os sites seo otimizados para SEO (mecanismos de busca), com meta tags, URLs amigáveis, carregamento rápido e estrutura semântica. Isso ajuda seu site a aparecer nas primeiras posições do Google.</div></div>
+ </div>
+ </div>
+ </section>
+
+ <section id="contact">
+ <div class="container">
+ <div style="text-align:center;margin-bottom:20px" class="reveal">
+ <span class="section-label">CONTATO</span>
+ <h2 class="section-title">Vamos conversar? <span>Fale conosco</span></h2>
+ </div>
+ <div class="contact-wrap">
+ <div class="contact-info reveal">
+ <h3>Entre em contato</h3>
+ <p>Tem um projeto em mente? Mande uma mensagem ou nos chame no WhatsApp.</p>
+ <div class="info-item"><i class="fab fa-whatsapp"></i> <span>(82) 99142-4574</span></div>
+ <div class="info-item"><i class="fas fa-envelope"></i> <span>contato@weare. digital</span></div>
+ <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span>Alagoas, Brasil</span></div>
+ </div>
+ <form class="contact-form reveal" id="contactForm">
+ <input type="text" placeholder="Seu nome" required />
+ <input type="email" placeholder="Seu email" required />
+ <input type="text" placeholder="Assunto" />
+ <textarea placeholder="Descreva seu projeto..." required></textarea>
+ <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
+ </form>
+ </div>
+ </div>
+ </section>
+ </main>
+
+ <div class="page-overlay" id="pageOverlay">
+ <button class="btn-fechar" id="pageFechar"><i class="fas fa-timês"></i></button>
+ <div id="pageContent"></div>
+ </div>
+
+ <div class="popup-overlay" id="paymentPopup">
+ <div class="popup">
+ <button class="popup-close" id="popupClose"><i class="fas fa-timês"></i></button>
+ <h3 id="popupTitle">Serviço</h3>
+ <div class="popup-price" id="popupPrice">R$0</div>
+ <p class="popup-desc" id="popupDesc">Descricao do serviço.</p>
+ <div class="price-options" id="priceOptions" style="display:none;margin-bottom:16px">
+ <p style="font-size:13px;color:var(--text-muted);margin-bottom:8px">Selecione a qualidade:</p>
+ <div style="display:flex;gap:8px;flex-wrap:wrap">
+ <button class="btn btn-outline price-option" data-price="1000" style="flex:1;padding:10px 12px;font-size:13px;justify-content:center">Básico<br><small>R$ 1.000</small></button>
+ <button class="btn btn-outline price-option" data-price="1250" style="flex:1;padding:10px 12px;font-size:13px;justify-content:center">Profissional<br><small>R$ 1.250</small></button>
+ <button class="btn btn-outline price-option" data-price="1500" style="flex:1;padding:10px 12px;font-size:13px;justify-content:center">Premium<br><small>R$ 1.500</small></button>
+ </div>
+ </div>
+ <div class="qr-wrap"><img id="popupQr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=12954113421" alt="QR Code PIX" /></div>
+ <div class="pix-key-info"><p><i class="fas fa-lock"></i> Chave PIX da empresa disponível para copia</p></div>
+ <div class="popup-actions">
+ <button class="btn btn-primary" id="copyPixBtn"><i class="fas fa-copy"></i> Copiar chave PIX</button>
+ <a href="#" class="btn btn-whatsapp" id="comprovanteLink" target="_blank"><i class="fab fa-whatsapp"></i> Enviar comprovante no WhatsApp</a>
+ </div>
+ <div class="popup-after-pay"><i class="fas fa-info-circle"></i> Apos pagar, envie o comprovante pelo WhatsApp.</div>
+ </div>
+ </div>
+
+ <div class="settings-overlay" id="settingsOverlay">
+ <div class="settings-panel">
+ <button class="popup-close" id="settingsClose"><i class="fas fa-timês"></i></button>
+ <h2><i class="fas fa-cog"></i> Configurações</h2>
+ <div class="settings-tabs">
+ <button class="settings-tab active" data-tab="tabLogin">Entrar</button>
+ <button class="settings-tab" data-tab="tabRegister">Criar Conta</button>
+ <button class="settings-tab" data-tab="tabProfile">Perfil</button>
+ <button class="settings-tab" data-tab="tabHistory">Historico</button>
+ </div>
+ <div class="settings-content active" id="tabLogin">
+ <form class="settings-form" id="loginForm">
+ <input type="email" placeholder="Email" id="loginEmail" required />
+ <input type="password" placeholder="Senha" id="loginPassword" required />
+ <div class="error" id="loginError">Email ou senha incorretos.</div>
+ <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+ <p style="text-align:center;color:var(--text-muted);font-size:13px">Ainda nao tem conta? <a href="#" style="color:var(--primary)" id="goToRegister">Crie uma</a></p>
+ </form>
+ </div>
+ <div class="settings-content" id="tabRegister">
+ <form class="settings-form" id="registerForm">
+ <input type="text" placeholder="Nome completo" id="regName" required />
+ <input type="email" placeholder="Email" id="regEmail" required />
+ <input type="tel" placeholder="Telefone" id="regPhone" />
+ <input type="password" placeholder="Senha (minimo 6 caracteres)" id="regPassword" required minlength="6" />
+ <div class="error" id="regError">Preencha todos os campos obrigatorios.</div>
+ <div class="success-msg" id="regSuccess">Conta criada com sucesso!</div>
+ <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Criar Conta</button>
+ </form>
+ </div>
+ <div class="settings-content" id="tabProfile">
+ <form class="settings-form" id="profileForm">
+ <input type="text" placeholder="Nome" id="profileName" />
+ <input type="email" placeholder="Email" id="profileEmail" />
+ <input type="tel" placeholder="Telefone" id="profilePhone" />
+ <div class="toggle-row"><span>Modo escuro</span><div class="toggle-switch active" id="darkModeToggle"></div></div>
+ <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Salvar Preferencias</button>
+ </form>
+ </div>
+ <div class="settings-content" id="tabHistory">
+ <div class="settings-history" id="historyList"><p style="color:var(--text-muted);font-size:14px">Nenhum serviço contratado ainda.</p></div>
+ </div>
+ </div>
+ </div>
+
+ 
+
+ <footer>
+ <div class="container">
+ <div class="footer-grid">
+ <div>
+ <h3><img src="logo%20we%20are.jpeg" alt="We Are" style="height:36px;vertical-align:middle;margin-right:8px" />WE <span style="font-weight:300">ARE</span></h3>
+ <p>Agencia de serviços digitais focada em transformar ideias em marcas digitais profissionais.</p>
+ <div class="footer-social">
+ <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+ <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+ 
+ </div>
+ </div>
+ <div><h4>Serviço</h4><ul><li><a href="#services">Criação de Sites</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#about">Sobre</a></li><li><a href="#contact">Orcamento</a></li></ul></div>
+ <div><h4>Links</h4><ul><li><a href="#about">Sobre</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contato</a></li></ul></div>
+ <div><h4>Contato</h4><ul><li></li><li><a href="mailto:contato@weare. digital">Email</a></li><li><a href="#contact">Formulerio</a></li></ul></div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 We Are. Todos os direitos reservados.</p>
+ <button class="back-top" id="backTop" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+ </div>
+ </div>
+ </footer>
+
+ <script>
+ (function(){
+ var pixKey='12954113421', wpp='5582991424574';
+ var wppLink='https://wa.me/'+wpp+'etext=Ol%C3%A1!%20Vim%20pelo%20site%20da%20We%20Are%20e%20gostaria%20de%20contratar%20um%20servi%C3%A7o.';
+
+ var projects=[
+ {
+ id:'moda-prime',cardImg:'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=80',
+ name:'Moda Prime',tagline:'Loja de Roupas',desc:'E-commerce premium com catálogo completo de produtos com fotos, descrições, preços e filtros.',
+ link:'',heroBg:'linear-gradient(135deg,#1a0a2e,#3d1a6e)',heroImg:'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1400&q=80',
+ badge:'E-COMMERCE',accent:'#c084fc',accentGrad:'linear-gradient(135deg,#c084fc,#7c3aed)',
+ heroTitle:'Moda Prime',heroDesc:'Loja de roupas com catálogo completo e preços transparentes.',
+ heroBtnText:'Ver Catálogo',
+ features:[
+ {i:'fa-tshirt',t:'Catálogo',d:'Produtos com fotos e descrições'},
+ {i:'fa-filter',t:'Filtros',d:'Por categoria e preço'},
+ {i:'fa-fire',t:'Lançamentos',d:'Destaque novidades'},
+ {i:'fa-whatsapp',t:'WhatsApp',d:'Peça pelo app'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#c084fc"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#c084fc,0.1);border:1px dashed #c084fc;border-radius:10px;font-size:13px;color:#c084fc"><i class="fas fa-info-circle"></i> Este e um exemplo de loja de roupas � imagens ilustrativas.</div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px"><button class="btn-filter active" data-cat="todos" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);cursor:pointer;font-size:13px">Todos</button><button class="btn-filter" data-cat="feminino" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Feminino</button><button class="btn-filter" data-cat="masculino" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Masculino</button><button class="btn-filter" data-cat="acessorios" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Acessórios</button><button class="btn-filter" data-cat="calcados" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Calçados</button></div><div class="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px"><div class="catalog-item" data-cat="feminino" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#c084fc;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">LANÇAMENTO</span><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">FEMININO</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Vestido Floral Verão</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Tecido leve, modelagem soltinha, perfeito para o verão.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 189,90</div></div></div><div class="catalog-item" data-cat="feminino" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#c084fc;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">DESTAQUE</span><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">FEMININO</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Blusa de Seda Elegance</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Seda pura, decote V, ideal para eventos sofisticados.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 159,90</div></div></div><div class="catalog-item" data-cat="feminino" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">FEMININO</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Saia Midi Plissada</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Plissada, cintura alta, tecido fluido e confortável.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 129,90</div></div></div><div class="catalog-item" data-cat="masculino" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#c084fc;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">DESTAQUE</span><img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">MASCULINO</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Camisa Social Slim</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Algodeo egípcio, corte slim, punho italiano.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 179,90</div></div></div><div class="catalog-item" data-cat="masculino" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#c084fc;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">PROMOÇÃO</span><img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">MASCULINO</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Jaqueta Couro Premium</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Couro legítimo, forro interno, fecho em zíper.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 459,90</div></div></div><div class="catalog-item" data-cat="masculino" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">MASCULINO</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Calea Jeans Skinny</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Denim premium, elastano, azul escuro, conforto total.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 199,90</div></div></div><div class="catalog-item" data-cat="acessorios" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#c084fc;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">LANÇAMENTO</span><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">ACESSÓRIOS</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Bolsa Tote Couro</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Couro legítimo, amplo espaço, alças reforçadas.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 349,90</div></div></div><div class="catalog-item" data-cat="acessorios" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">ACESSÓRIOS</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Relógio Digital Prata</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Aço inoxidável, cronógrafo, resistente a agua.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 289,90</div></div></div><div class="catalog-item" data-cat="calcados" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#c084fc;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">DESTAQUE</span><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">CALÇADOS</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Tenis Casual Branco</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Couro sintético, sola antiderrapante, conforto total.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 239,90</div></div></div><div class="catalog-item" data-cat="calcados" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400&q=80" style="width:100%;height:260px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#c084fc;font-weight:600;margin-bottom:4px">CALÇADOS</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Scarpin Salto Fino</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0">Couro legítimo, salto 10cm, palmilha acolchoada.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#c084fc;margin:8px 0">R$ 279,90</div></div></div></div></div>',
+ testimonials:[{s:'O catálogo online aumentou nossas vendas em 50%! As clientes amam pedir pelo WhatsApp.',a:'Marina Souza'},{s:'Design moderno e facil de navegar. O filtro por categoria e show!',a:'Pedro Almeida'}]
+ },
+ {
+ id:'solar-tech',cardImg:'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80',
+ name:'Solar Tech',tagline:'Energia Solar',desc:'Portal completo com catálogo de kits solares, simulador de economia, comparador de produtos e orçamento via WhatsApp.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#0a2e1a,#1a5c3a)',heroImg:'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=1400&q=80',
+ badge:'ENERGIA RENOVÁVEL',accent:'#34d399',accentGrad:'linear-gradient(135deg,#34d399,#059669)',
+ heroTitle:'Solar Tech',heroDesc:'Energia solar para sua casa ou empresa.Catálogo de kits, simulador de economia e comparação entre produtos.',
+ heroBtnText:'Ver Kits',
+ features:[
+ {i:'fa-bolt',t:'Kits',d:'Catálogo completo'},
+ {i:'fa-calculator',t:'Simulador',d:'Calcule sua economia'},
+ {i:'fa-balance-scale',t:'Comparar',d:'Compare produtos'},
+ {i:'fa-whatsapp',t:'Orçamento',d:'Solicite via WhatsApp'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#34d399"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#34d399,0.1);border:1px dashed #34d399;border-radius:10px;font-size:13px;color:#34d399"><i class="fas fa-info-circle"></i> Este e um exemplo de catálogo de energia solar � imagens ilustrativas.</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px"><h4 style="font-family:var(--fp);font-size:16px;margin-bottom:12px">Simulador de Economia</h4><label style="font-size:13px;color:var(--text-muted)">Sua conta de luz atual (R$):</label><input type="range" min="100" max="3000" value="500" class="solar-range" style="width:100%;margin:12px 0" oninput="document.getElementById(\'solarVal\').textContent=\'R$ \'+parseInt(this.value).toLocaleString(\'pt-BR\');document.getElementById(\'solarEcon\').textContent=\'R$ \'+Math.round(this.value*0.95).toLocaleString(\'pt-BR\')" /><div style="text-align:center"><div style="font-size:13px;color:var(--text-muted)">Sua conta</div><div style="font-family:var(--fp);font-size:28px;font-weight:800;color:#34d399" id="solarVal">R$ 500</div></div><div style="text-align:center;margin-top:12px"><div style="font-size:13px;color:var(--text-muted)">Economia mensal</div><div style="font-family:var(--fp);font-size:32px;font-weight:800;color:#34d399" id="solarEcon">R$ 475</div><div style="font-size:11px;color:var(--text-muted)">*Economia de até 95%</div></div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px"><h4 style="font-family:var(--fp);font-size:16px;margin-bottom:12px">Comparador de Kits</h4><div style="display:flex;flex-direction:column;gap:10px"><div style="display:flex;justify-content:space-between;padding:10px 14px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:14px">Kit 2kWp</div><div style="font-size:12px;color:var(--text-muted)">2 placas e Microinversor</div></div><div style="text-align:right"><div style="font-weight:800;color:#34d399">R$ 4.990</div><div style="font-size:11px;color:var(--text-muted)">Economia: R$ 190/mês</div></div></div><div style="display:flex;justify-content:space-between;padding:10px 14px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:14px">Kit 5kWp</div><div style="font-size:12px;color:var(--text-muted)">5 placas e Microinversor e String</div></div><div style="text-align:right"><div style="font-weight:800;color:#34d399">R$ 9.990</div><div style="font-size:11px;color:var(--text-muted)">Economia: R$ 475/mês</div></div></div><div style="display:flex;justify-content:space-between;padding:10px 14px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><div><div style="font-weight:600;font-size:14px">Kit 10kWp</div><div style="font-size:12px;color:var(--text-muted)">10 placas e Inversor trifásico</div></div><div style="text-align:right"><div style="font-weight:800;color:#34d399">R$ 18.990</div><div style="font-size:11px;color:var(--text-muted)">Economia: R$ 950/mês</div></div></div><div style="display:flex;justify-content:space-between;padding:10px 14px;background:var(--glass);border-radius:8px;border:1px solid var(--border);opacity:0.6"><div><div style="font-weight:600;font-size:14px">Kit 15kWp</div><div style="font-size:12px;color:var(--text-muted)">15 placas? Inversor industrial</div></div><div style="text-align:right"><div style="font-weight:800;color:#34d399">R$ 26.990</div><div style="font-size:11px;color:var(--text-muted)">Economia: R$ 1.420/mês</div></div></div></div></div></div><div style="margin-bottom:24px"><h3 style="font-family:var(--fp);font-size:20px;font-weight:700;margin-bottom:16px">Catálogo de Kits Solares</h3><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px"><button class="btn-filter active" data-cat="todos" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);cursor:pointer;font-size:13px">Todos</button><button class="btn-filter" data-cat="2kwp" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">2kWp</button><button class="btn-filter" data-cat="5kwp" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">5kWp</button><button class="btn-filter" data-cat="10kwp" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">10kWp</button></div><div class="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px"><div class="catalog-item" data-cat="2kwp" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#34d399;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">MAIS VENDIDO</span><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#34d399;font-weight:600;margin-bottom:4px">2kWp? RESIDENCIAL</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Kit Solar 2kWp</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">2 placas 330W, microinversor, cabos e conector.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#34d399;margin:8px 0">R$ 4.990</div></div></div><div class="catalog-item" data-cat="2kwp" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#34d399;font-weight:600;margin-bottom:4px">2kWp? RESIDENCIAL</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Kit 2kWp Premium</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Paineis alta eficiência, monitoramento WiFi.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#34d399;margin:8px 0">R$ 6.490</div></div></div><div class="catalog-item" data-cat="5kwp" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#34d399;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">RECOMENDADO</span><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#34d399;font-weight:600;margin-bottom:4px">5kWp? RESIDENCIAL</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Kit Solar 5kWp</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">5 placas 330W, inversor string, estrutura alumínio.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#34d399;margin:8px 0">R$ 9.990</div></div></div><div class="catalog-item" data-cat="5kwp" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#34d399;font-weight:600;margin-bottom:4px">5kWp? RESIDENCIAL</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Kit 5kWp High-Tech</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Paineis bifaciais, otimizadores de potência.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#34d399;margin:8px 0">R$ 13.490</div></div></div><div class="catalog-item" data-cat="10kwp" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#34d399;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">PODEROSO</span><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#34d399;font-weight:600;margin-bottom:4px">10kWp? COMERCIAL</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Kit Solar 10kWp</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">10 placas 330W, inversor trifásico, monitoramento.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#34d399;margin:8px 0">R$ 18.990</div></div></div><div class="catalog-item" data-cat="10kwp" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#34d399;font-weight:600;margin-bottom:4px">10kWp? INDUSTRIAL</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Kit 10kWp Pro</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Paineis alta potência, inversor industrial, garantia 25 anos.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#34d399;margin:8px 0">R$ 24.990</div></div></div></div></div><div style="margin-bottom:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px"><h3 style="font-family:var(--fp);font-size:18px;font-weight:700;margin-bottom:16px">Por que escolher a Solar Tech?</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px"><div style="text-align:center;padding:16px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600;margin-bottom:4px">Garantia Total</h4><p style="font-size:12px;color:var(--text-muted)">25 anos nos paineis, 5 anos nos inversores</p></div><div style="text-align:center;padding:16px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600;margin-bottom:4px">Instalação Grátis</h4><p style="font-size:12px;color:var(--text-muted)">Equipe credenciada em todo Brasil</p></div><div style="text-align:center;padding:16px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600;margin-bottom:4px">Monitoramento</h4><p style="font-size:12px;color:var(--text-muted)">App gratuito para acompanhar sua gerao</p></div><div style="text-align:center;padding:16px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600;margin-bottom:4px">Financiamento</h4><p style="font-size:12px;color:var(--text-muted)">Em até 48x com parcelas que cabem no bolso</p></div></div></div></div>',
+ testimonials:[{s:'Minha conta de luz caiu de R$800 para R$40.O simulador mostrou exatamente o que eu precisava.',a:'Jose Ferreira'},{s:'Comparamos os kits pelo site e escolhemos o ideal.Entrega rapida!',a:'Ana Beatriz'}]
+ },
+ {
+ id:'auto-prime',cardImg:'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80',
+ name:'Auto Prime',tagline:'Loja de Carros',desc:'Portal automotivo premium com catálogo de veículos, filtros por marca/modelo/preço, galeria completa e WhatsApp.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#0a0a2e,#1a1a5c)',heroImg:'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1400&q=80',
+ badge:'AUTOMOTIVO',accent:'#60a5fa',accentGrad:'linear-gradient(135deg,#60a5fa,#2563eb)',
+ heroTitle:'Auto Prime',heroDesc:'Os melhores veículos com catálogo completo, filtros por marca, modelo e preço, galeria de fotos e preços transparentes.',
+ heroBtnText:'Ver Catálogo de Veículos',
+ features:[
+ {i:'fa-car',t:'Catálogo',d:'Veículos detalhados'},
+ {i:'fa-filter',t:'Filtros',d:'Por marca, modelo e preço'},
+ {i:'fa-images',t:'Galeria',d:'Fotos internas e externas'},
+ {i:'fa-tag',t:'Preços',d:'Valores diretos'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#60a5fa"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(96,165,250,0.1);border:1px dashed #60a5fa;border-radius:10px;font-size:13px;color:#60a5fa"><i class="fas fa-info-circle"></i> Este e um exemplo de catálogo automotivo com imagens ilustrativas.</div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px"><button class="btn-filter active" data-cat="todos" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);cursor:pointer;font-size:13px">Todos</button><button class="btn-filter" data-cat="sedan" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Sedan</button><button class="btn-filter" data-cat="suv" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">SUV</button><button class="btn-filter" data-cat="esportivo" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Esportivo</button><button class="btn-filter" data-cat="pickup" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Pickup</button><button class="btn-filter" data-cat="hatch" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Hatch</button></div><div class="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px"><div class="catalog-item" data-cat="sedan" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#60a5fa;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">DESTAQUE</span><img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#60a5fa;font-weight:600;margin-bottom:4px">SEDAN - 2024</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">BMW Serie 3</div><div style="color:var(--text-muted);font-size:13px;margin:6px 0">2.0 Turbo e Automatico e 18.000 km e Flex</div><div style="font-family:var(--fp);font-weight:800;font-size:20px;color:#60a5fa;margin:8px 0">R$ 289.900</div></div></div><div class="catalog-item" data-cat="sedan" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#60a5fa;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">EXEMPLO</span><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#60a5fa;font-weight:600;margin-bottom:4px">SEDAN - 2023</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Mercedes-Benz Classe C</div><div style="color:var(--text-muted);font-size:13px;margin:6px 0">2.0 Turbo e Automatico e 25.000 km e Flex</div><div style="font-family:var(--fp);font-weight:800;font-size:20px;color:#60a5fa;margin:8px 0">R$ 329.900</div></div></div><div class="catalog-item" data-cat="suv" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#60a5fa;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">EXEMPLO</span><img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=600&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#60a5fa;font-weight:600;margin-bottom:4px">SUV - 2024</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Volvo XC60</div><div style="color:var(--text-muted);font-size:13px;margin:6px 0">2.0 Turbo e Automatico e 8.000 km e Diesel</div><div style="font-family:var(--fp);font-weight:800;font-size:20px;color:#60a5fa;margin:8px 0">R$ 389.900</div></div></div><div class="catalog-item" data-cat="esportivo" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#60a5fa;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">EXEMPLO</span><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#60a5fa;font-weight:600;margin-bottom:4px">ESPORTIVO - 2024</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Lamborghini Huracan</div><div style="color:var(--text-muted);font-size:13px;margin:6px 0">5.2 V10 e Automatico e 2.000 km e Gasolina</div><div style="font-family:var(--fp);font-weight:800;font-size:20px;color:#60a5fa;margin:8px 0">R$ 4.290.000</div></div></div><div class="catalog-item" data-cat="pickup" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#60a5fa;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">EXEMPLO</span><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#60a5fa;font-weight:600;margin-bottom:4px">PICKUP - 2024</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Ford Ranger</div><div style="color:var(--text-muted);font-size:13px;margin:6px 0">3.2 Diesel e Automatico e 12.000 km e Diesel</div><div style="font-family:var(--fp);font-weight:800;font-size:20px;color:#60a5fa;margin:8px 0">R$ 249.900</div></div></div><div class="catalog-item" data-cat="hatch" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#60a5fa;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">EXEMPLO</span><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#60a5fa;font-weight:600;margin-bottom:4px">HATCH - 2024</div><div style="font-family:var(--fp);font-weight:700;font-size:16px">Volkswagen Golf GTI</div><div style="color:var(--text-muted);font-size:13px;margin:6px 0">2.0 Turbo e Automatico e 5.000 km e Flex</div><div style="font-family:var(--fp);font-weight:800;font-size:20px;color:#60a5fa;margin:8px 0">R$ 219.900</div></div></div></div></div>',
+ testimonials:[{s:'Comprei meu BMW pelo catálogo online.Filtrei por modelo e já chamei no WhatsApp.Muito pratico!',a:'Ricardo Oliveira'},{s:'Site show de bola! As fotos em alta resolução e os filtros facilitaram muito a escolha.',a:'Fernanda Costa'}]
+ },
+ {
+ id:'fit-evolution',cardImg:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80',
+ name:'Fit Evolution',tagline:'Academia',desc:'Site completo com catálogo de planos, modalidades, agenda de aulas, erea de depoimentos e matrícula online.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#2e0a0a,#5c1a1a)',heroImg:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1400&q=80',
+ badge:'FITNESS & SAÚDE',accent:'#f87171',accentGrad:'linear-gradient(135deg,#f87171,#dc2626)',
+ heroTitle:'Fit Evolution',heroDesc:'Academia completa com planos flexíveis, modalidades variadas, agenda digital e matrícula pelo WhatsApp.',
+ heroBtnText:'Ver Planos e Aulas',
+ features:[
+ {i:'fa-dumbbell',t:'Planos',d:'Catálogo de planos'},
+ {i:'fa-futbol',t:'Modalidades',d:'Aulas diversas'},
+ {i:'fa-calendar-alt',t:'Agenda',d:'Horários online'},
+ {i:'fa-whatsapp',t:'Matrícula',d:'Faça já sua matrícula'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#f87171"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#f87171,0.1);border:1px dashed #f87171;border-radius:10px;font-size:13px;color:#f87171"><i class="fas fa-info-circle"></i> Este e um exemplo de site de academia � conteúdo ilustrativo.</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:32px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center"><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:18px;margin-bottom:8px">Plano Básico</h4><div style="font-family:var(--fp);font-size:36px;font-weight:800;color:#f87171">R$ 89<small style="font-size:14px;color:var(--text-muted)">/mês</small></div><ul style="list-style:none;margin:16px 0;text-align:left"><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Musculação completa</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Cardio livre</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Aulas em grupo</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Vestuario completo</li></ul></div><div style="background:var(--bg-card);border:2px solid #f87171;border-radius:var(--radius);padding:24px;text-align:center;position:relative"><span style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#f87171;color:#fff;font-size:10px;font-weight:700;padding:4px 16px;border-radius:50px">POPULAR</span><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:18px;margin-bottom:8px">Plano Premium</h4><div style="font-family:var(--fp);font-size:36px;font-weight:800;color:#f87171">R$ 159<small style="font-size:14px;color:var(--text-muted)">/mês</small></div><ul style="list-style:none;margin:16px 0;text-align:left"><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Tudo do Básico</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Personal trainer</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Aulas exclusivas</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Nutricionista inclusa</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>erea VIP + SPA</li></ul></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center"><div style="font-size:32px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:18px;margin-bottom:8px">Plano Ultra</h4><div style="font-family:var(--fp);font-size:36px;font-weight:800;color:#f87171">R$ 249<small style="font-size:14px;color:var(--text-muted)">/mês</small></div><ul style="list-style:none;margin:16px 0;text-align:left"><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Tudo do Premium</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Acompanhamento 24h</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Treino personalizado</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Massoterapia semanal</li><li style="padding:6px 0;font-size:13px;color:var(--text-muted)"><i class="fas fa-check" style="color:#f87171;margin-right:8px"></i>Acesso total ilimitado</li></ul></div></div><div style="margin-bottom:32px"><h3 style="font-family:var(--fp);font-size:20px;font-weight:700;margin-bottom:16px">Nossas Modalidades</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Musculação</div><div style="font-size:11px;color:var(--text-muted)">Seg a Seb</div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Crossfit</div><div style="font-size:11px;color:var(--text-muted)">Seg, Qua, Sex</div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Yoga</div><div style="font-size:11px;color:var(--text-muted)">Ter, Qui, Seb</div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Pilates</div><div style="font-size:11px;color:var(--text-muted)">Seg, Qua, Sex</div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Danea</div><div style="font-size:11px;color:var(--text-muted)">Ter, Qui, Seb</div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Muay Thai</div><div style="font-size:11px;color:var(--text-muted)">Seg, Qua, Sex</div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center"><div style="font-size:28px;margin-bottom:6px"></div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Funcional</div><div style="font-size:11px;color:var(--text-muted)">Ter, Qui, Seb</div></div></div></div><div style="margin-bottom:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px"><h3 style="font-family:var(--fp);font-size:18px;font-weight:700;margin-bottom:16px">Agenda de Aulas</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px"><div style="text-align:center;padding:12px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:4px">SEGUNDA</div><div style="font-size:12px">Crossfit 7h<br/>Yoga 9h<br/>Funcional 18h</div></div><div style="text-align:center;padding:12px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:4px">TEReA</div><div style="font-size:12px">Pilates 7h<br/>Danea 9h<br/>Muay Thai 18h</div></div><div style="text-align:center;padding:12px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:4px">QUARTA</div><div style="font-size:12px">Crossfit 7h<br/>Yoga 9h<br/>Funcional 18h</div></div><div style="text-align:center;padding:12px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:4px">QUINTA</div><div style="font-size:12px">Pilates 7h<br/>Danea 9h<br/>Muay Thai 18h</div></div><div style="text-align:center;padding:12px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:4px">SEXTA</div><div style="font-size:12px">Crossfit 7h<br/>Yoga 9h<br/>Funcional 18h</div></div><div style="text-align:center;padding:12px;background:var(--glass);border-radius:var(--radius-sm)"><div style="font-size:11px;color:var(--text-muted);font-weight:600;margin-bottom:4px">SeBADO</div><div style="font-size:12px">Yoga 8h<br/>Danea 9h<br/>Funcional 10h</div></div></div></div></div>',
+ testimonials:[{s:'Perdi 15kg em 3 mêses com o plano Premium.O personal trainer faz toda a diferença!',a:'Lucas Mendes'},{s:'Academia top, modalidades incríveis e o site mostra tudo certinho.Virei fa!',a:'Camila Santos'}]
+ },
+ {
+ id:'medcare',cardImg:'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80',
+ name:'MedCare',tagline:'Clínica Médica',desc:'Portal de saúde com catálogo de especialidades, serviços médicos, equipe profissional e agendamento online.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#0a1a2e,#1a3a5c)',heroImg:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80',
+ badge:'SAÚDE & BEM-ESTAR',accent:'#38bdf8',accentGrad:'linear-gradient(135deg,#38bdf8,#0284c7)',
+ heroTitle:'MedCare',heroDesc:'Cuidamos da sua saúde com especialidades completas, serviços modernos e agendamento facil pelo WhatsApp.',
+ heroBtnText:'Ver Especialidades',
+ features:[
+ {i:'fa-stethoscope',t:'Especialidades',d:'Catálogo completo'},
+ {i:'fa-user-md',t:'Médicos',d:'Equipe especializada'},
+ {i:'fa-procedures',t:'Serviços',d:'Examês e consultas'},
+ {i:'fa-dollar-sign',t:'Preços',d:'Tabela transparente'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#38bdf8"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#38bdf8,0.1);border:1px dashed #38bdf8;border-radius:10px;font-size:13px;color:#38bdf8"><i class="fas fa-info-circle"></i> Este e um exemplo de clínica médica � conteúdo ilustrativo.</div><div style="margin-bottom:32px"><h3 style="font-family:var(--fp);font-size:20px;font-weight:700;margin-bottom:16px">Nossas Especialidades</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Cardiologia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Check-up cardíaco, ecocardiograma, holter</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Neurologia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Consulta neurológica, eletroencefalograma, ressonância</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Ortopedia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Fraturas, lesões, raio-X, fisioterapia</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Oftalmologia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Examês de vista, cirurgia refrativa, lentes</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Ginecologia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Preventivo, examês, planejamento familiar</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Pediatria</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Consultas infantis, vacinas, crescimento</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Pneumologia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Espirometria, alergias, doencas respiratorias</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all.3s"><div style="font-size:36px;margin-bottom:8px"></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Dermatologia</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Consulta dermatologica, examês de pele, cirurgia</p></div></div></div><div style="margin-bottom:32px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px"><h3 style="font-family:var(--fp);font-size:18px;font-weight:700;margin-bottom:16px">Tabela de Serviços e Preços</h3><div style="display:flex;flex-direction:column;gap:8px"><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Consulta Clinica Geral</span><span style="font-weight:700;color:#38bdf8">R$ 120</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Consulta Especialista</span><span style="font-weight:700;color:#38bdf8">R$ 180</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Ecocardiograma</span><span style="font-weight:700;color:#38bdf8">R$ 250</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Eletroencefalograma</span><span style="font-weight:700;color:#38bdf8">R$ 200</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Raio-X Digital</span><span style="font-weight:700;color:#38bdf8">R$ 80</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Exame de Sangue</span><span style="font-weight:700;color:#38bdf8">R$ 60</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Fisioterapia (sessao)</span><span style="font-weight:700;color:#38bdf8">R$ 70</span></div><div style="display:flex;justify-content:space-between;padding:12px 16px;background:var(--glass);border-radius:8px;border:1px solid var(--border)"><span style="font-size:14px">Ressonancia Magnetica</span><span style="font-weight:700;color:#38bdf8">R$ 550</span></div></div></div><div style="margin-bottom:24px"><h3 style="font-family:var(--fp);font-size:18px;font-weight:700;margin-bottom:16px">Nossa Equipe</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center"><div style="font-size:48px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600">Dr.Carlos Silva</h4><p style="font-size:12px;color:var(--text-muted)">Cardiologista - CRM 12345</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center"><div style="font-size:48px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600">Dra.Ana Oliveira</h4><p style="font-size:12px;color:var(--text-muted)">Neurologista - CRM 23456</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center"><div style="font-size:48px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600">Dr.Pedro Santos</h4><p style="font-size:12px;color:var(--text-muted)">Ortopedista - CRM 34567</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center"><div style="font-size:48px;margin-bottom:8px"></div><h4 style="font-size:14px;font-weight:600">Dra.Marina Costa</h4><p style="font-size:12px;color:var(--text-muted)">Pediatra - CRM 45678</p></div></div></div></div>',
+ testimonials:[{s:'Agendei minha consulta pelo site em 2 minutos.Atendimento humanizado e equipe nota 10.',a:'Mariana Lima'},{s:'Clinica moderna, médicos atenciosos e o catálogo de especialidades e show!',a:'Roberto Dias'}]
+ },
+ {
+ id:'home-vision',cardImg:'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
+ name:'Home Vision',tagline:'Imobiliária',desc:'Portal imobiliário premium com catálogo de imóveis, filtros avançados, galeria completa e contato direto com corretor.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#1a1a0a,#3a3a1a)',heroImg:'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&q=80',
+ badge:'IMOBILIÁRIO',accent:'#fbbf24',accentGrad:'linear-gradient(135deg,#fbbf24,#d97706)',
+ heroTitle:'Home Vision',heroDesc:'Encontre o imóvel perfeito com catálogo completo, filtros avançados, tour virtual e galeria completa.',
+ heroBtnText:'Ver Imóveis',
+ features:[
+ {i:'fa-home',t:'Imóveis',d:'Catálogo completo'},
+ {i:'fa-sliders-h',t:'Filtros',d:'Busca avançada'},
+ {i:'fa-camera',t:'Galeria',d:'Fotos em alta resolução'},
+ {i:'fa-dollar-sign',t:'Preços',d:'Valores diretos'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#fbbf24"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#fbbf24,0.1);border:1px dashed #fbbf24;border-radius:10px;font-size:13px;color:#fbbf24"><i class="fas fa-info-circle"></i> Este e um exemplo de site imobiliário � imagens ilustrativas.</div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px"><button class="btn-filter active" data-cat="todos" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);cursor:pointer;font-size:13px">Todos</button><button class="btn-filter" data-cat="venda" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Venda</button><button class="btn-filter" data-cat="aluguel" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Aluguel</button><button class="btn-filter" data-cat="lancamento" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Lancamentos</button><button class="btn-filter" data-cat="comercial" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Comercial</button></div><div class="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px"><div class="catalog-item" data-cat="venda" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fbbf24;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">VENDA</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" style="width:100%;height:220px;object-fit:cover" /></div><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:17px">Casa Jardim Europa</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0"><i class="fas fa-bed" style="margin-right:4px"></i>3 quartos e 2 vagas e 250m2</div><div style="color:var(--text-muted);font-size:12px">Jardim Europa, Seo Paulo - SP</div><div style="font-family:var(--fp);font-weight:800;font-size:22px;color:#fbbf24;margin:10px 0">R$ 1.200.000</div></div></div><div class="catalog-item" data-cat="venda" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fbbf24;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">VENDA</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" style="width:100%;height:220px;object-fit:cover" /></div><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:17px">Apartamento Vila Nova</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0"><i class="fas fa-bed" style="margin-right:4px"></i>2 quartos e 1 vaga e 85m2</div><div style="color:var(--text-muted);font-size:12px">Vila Nova Conceio, Seo Paulo - SP</div><div style="font-family:var(--fp);font-weight:800;font-size:22px;color:#fbbf24;margin:10px 0">R$ 580.000</div></div></div><div class="catalog-item" data-cat="aluguel" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fbbf24;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">ALUGUEL</span><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" style="width:100%;height:220px;object-fit:cover" /></div><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:17px">Cobertura Barra</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0"><i class="fas fa-bed" style="margin-right:4px"></i>4 quartos e 3 vagas e 350m2</div><div style="color:var(--text-muted);font-size:12px">Barra da Tijuca, Rio de Janeiro - RJ</div><div style="font-family:var(--fp);font-weight:800;font-size:22px;color:#fbbf24;margin:10px 0">R$ 8.900/mês</div></div></div><div class="catalog-item" data-cat="aluguel" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fbbf24;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">ALUGUEL</span><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" style="width:100%;height:220px;object-fit:cover" /></div><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:17px">Studio Centro</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0"><i class="fas fa-bed" style="margin-right:4px"></i>1 quarto e 1 vaga e 45m2</div><div style="color:var(--text-muted);font-size:12px">Centro, Belo Horizonte - MG</div><div style="font-family:var(--fp);font-weight:800;font-size:22px;color:#fbbf24;margin:10px 0">R$ 2.500/mês</div></div></div><div class="catalog-item" data-cat="lancamento" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fbbf24;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">LANÇAMENTO</span><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" style="width:100%;height:220px;object-fit:cover" /></div><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:17px">Residencial Park Avenue</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0"><i class="fas fa-bed" style="margin-right:4px"></i>2 ou 3 quartos e 2 vagas e 70-120m2</div><div style="color:var(--text-muted);font-size:12px">Alphaville, Barueri - SP</div><div style="font-family:var(--fp);font-weight:800;font-size:22px;color:#fbbf24;margin:10px 0">A partir de R$ 450.000</div></div></div><div class="catalog-item" data-cat="comercial" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fbbf24;color:#000;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">COMERCIAL</span><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" style="width:100%;height:220px;object-fit:cover" /></div><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:17px">Salas Comerciais Centro</div><div style="color:var(--text-muted);font-size:13px;margin:4px 0"><i class="fas fa-briefcase" style="margin-right:4px"></i>50-200m2 e 4 salas</div><div style="color:var(--text-muted);font-size:12px">Centro, Seo Paulo - SP</div><div style="font-family:var(--fp);font-weight:800;font-size:22px;color:#fbbf24;margin:10px 0">R$ 3.500/mês</div></div></div></div></div>',
+ testimonials:[{s:'Encontrei a casa ideal pelos filtros do site.Ja visitei e fechei negócio tudo online!',a:'Patricia Mendonça'},{s:'Site completo, com galeria de fotos e galeria completa.Recomendo!',a:'André Campos'}]
+ },
+ {
+ id:'sabor-arte',cardImg:'https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&q=80',
+ name:'Sabor & Arte',tagline:'Confeitaria',desc:'Site artesanal com catálogo de bolos e doces, categorias, fotos dos produtos e encomendas via WhatsApp.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#2e1a0a,#5c3a1a)',heroImg:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400&q=80',
+ badge:'CONFEITARIA',accent:'#fb923c',accentGrad:'linear-gradient(135deg,#fb923c,#ea580c)',
+ heroTitle:'Sabor & Arte',heroDesc:'Bolos, doces e sobremêsas artesanais.Catálogo completo com categorias e preços.',
+ heroBtnText:'Ver Cardápio',
+ features:[
+ {i:'fa-birthday-cake',t:'Cardápio',d:'Catálogo completo'},
+ {i:'fa-th-large',t:'Categorias',d:'Bolos, doces, salgados'},
+ {i:'fa-camera',t:'Galeria',d:'Fotos reais dos produtos'},
+ {i:'fa-whatsapp',t:'Encomendas',d:'Peca já pelo WhatsApp'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#fb923c"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#fb923c,0.1);border:1px dashed #fb923c;border-radius:10px;font-size:13px;color:#fb923c"><i class="fas fa-info-circle"></i> Este e um exemplo de cardápio de confeitaria � imagens ilustrativas.</div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px"><button class="btn-filter active" data-cat="todos" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:var(--bg-card);color:var(--text);cursor:pointer;font-size:13px">Todos</button><button class="btn-filter" data-cat="bolos" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Bolos</button><button class="btn-filter" data-cat="doces" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Doces</button><button class="btn-filter" data-cat="salgados" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Salgados</button><button class="btn-filter" data-cat="bebidas" style="padding:8px 18px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;font-size:13px">Bebidas</button></div><div class="catalog-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px"><div class="catalog-item" data-cat="bolos" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fb923c;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">MAIS PEDIDO</span><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">BOLOS</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Bolo de Chocolaté Belga</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Chocolaté belga, ganache, recheio cremoso.Serve 20 pessoas.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 89,90</div></div></div><div class="catalog-item" data-cat="bolos" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fb923c;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">LANÇAMENTO</span><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">BOLOS</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Bolo Red Velvet</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Massa vermelha, cream cheese, frutas vermelhas.Serve 25 pessoas.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 129,90</div></div></div><div class="catalog-item" data-cat="bolos" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">BOLOS</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Bolo de Cenoura com Chocolate</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Massa fofinha, cobertura de chocolate.Serve 15 pessoas.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 69,90</div></div></div><div class="catalog-item" data-cat="doces" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fb923c;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">DESTAQUE</span><img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">DOCES</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Caixa de Bombom Artesanal</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">12 unidades sortidas: trufa, marzipa, caramelo.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 49,90</div></div></div><div class="catalog-item" data-cat="doces" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">DOCES</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Macarons Sortidos</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Caixa com 10 macarons franceses: pistache, limeo, framboesa.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 59,90</div></div></div><div class="catalog-item" data-cat="salgados" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fb923c;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">PROMOÇÃO</span><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">SALGADOS</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Tebua de Frios Premium</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Queijos, presunto parma, azeitonas, pees artesanais.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 79,90</div></div></div><div class="catalog-item" data-cat="salgados" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">SALGADOS</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Mini Sandueches Gourmet</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">12 unidades: frango, salmeo, vegetariano.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 69,90</div></div></div><div class="catalog-item" data-cat="bebidas" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><div style="position:relative"><span style="position:absolute;top:10px;left:10px;background:#fb923c;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;z-index:1">DESTAQUE</span><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&q=80" style="width:100%;height:200px;object-fit:cover" /></div><div style="padding:16px"><div style="font-size:12px;color:#fb923c;font-weight:600;margin-bottom:4px">BEBIDAS</div><div style="font-family:var(--fp);font-weight:700;font-size:15px">Suco Natural Detox</div><div style="color:var(--text-muted);font-size:12px;margin:4px 0">Clorofila, limeo, gengibre, hortela.Garrafa 500ml.</div><div style="font-family:var(--fp);font-weight:800;font-size:18px;color:#fb923c;margin:8px 0">R$ 14,90</div></div></div></div></div>',
+ testimonials:[{s:'Encomendei o bolo de aniversário pelo site e ficou perfeito! Entrega no horário.',a:'Tatiane Moreira'},{s:'O catálogo e lindo! Da vontade de pedir tudo.E o WhatsApp facilita demais.',a:'Gustavo Reis'}]
+ },
+ {
+ id:'we-digital',cardImg:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+ name:'We Digital',tagline:'Site Institucional',desc:'Site corporativo premium com apresentação da empresa, portfólio de serviços, cases de sucesso.',
+ link:'',
+ heroBg:'linear-gradient(135deg,#0a0a2e,#1a1a5c)',heroImg:'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1400&q=80',
+ badge:'CORPORATIVO',accent:'#818cf8',accentGrad:'linear-gradient(135deg,#818cf8,#4f46e5)',
+ heroTitle:'We Digital',heroDesc:'Soluções corporativas com excelencia.Catálogo de serviços, cases de sucesso e equipe qualificada.',
+ heroBtnText:'Conheca Nossos Serviços',
+ features:[
+ {i:'fa-building',t:'Empresa',d:'Nossa historia'},
+ {i:'fa-concierge-bell',t:'Serviços',d:'Catálogo completo'},
+ {i:'fa-trophy',t:'Cases',d:'Projetos realizados'},
+ {i:'fa-chart-bar',t:'Resultados',d:'Cases de sucesso'}
+ ],
+ extraHTML:'<div class="pg-section" style="--accent-color:#818cf8"><div style="text-align:center;padding:12px;margin-bottom:20px;background:rgba(#818cf8,0.1);border:1px dashed #818cf8;border-radius:10px;font-size:13px;color:#818cf8"><i class="fas fa-info-circle"></i> Este e um exemplo de site institucional � conteúdo ilustrativo.</div><div style="margin-bottom:32px"><h3 style="font-family:var(--fp);font-size:20px;font-weight:700;margin-bottom:16px">Nossos Serviços</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all.3s"><div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#818cf8,#4f46e5);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;color:#fff"><i class="fas fa-globe"></i></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Sites Institucionais</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Presença digital profissional para sua empresa</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all.3s"><div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#818cf8,#4f46e5);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;color:#fff"><i class="fas fa-shopping-cart"></i></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">E-commerce</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Loja virtual completa com gestão de produtos</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all.3s"><div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#818cf8,#4f46e5);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;color:#fff"><i class="fas fa-paint-brush"></i></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Design Gráfico</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Identidade visual, logos, materiais impressos</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all.3s"><div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#818cf8,#4f46e5);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;color:#fff"><i class="fas fa-search"></i></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">SEO & Marketing</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Otimização para mecanismos de busca e tráfego</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all.3s"><div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#818cf8,#4f46e5);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;color:#fff"><i class="fas fa-mobile-alt"></i></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Aplicativos Mobile</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Apps nativos para iOS e Android</p></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px;text-align:center;transition:all.3s"><div style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#818cf8,#4f46e5);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px;color:#fff"><i class="fas fa-headset"></i></div><h4 style="font-family:var(--fp);font-size:15px;font-weight:700">Suporte Tecnico</h4><p style="font-size:12px;color:var(--text-muted);margin:6px 0">Manutenção, hospedagem e suporte contínuo</p></div></div></div><div style="margin-bottom:32px"><h3 style="font-family:var(--fp);font-size:20px;font-weight:700;margin-bottom:16px">Cases de Sucesso</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px"><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80" style="width:100%;height:180px;object-fit:cover" /><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:15px;margin-bottom:4px">TechStore</div><p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">E-commerce de eletrônicos que aumentou as vendas em 200% com nosso catálogo digital.</p><div style="font-size:11px;color:#818cf8;font-weight:600">Site Institucional + E-commerce</div></div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" style="width:100%;height:180px;object-fit:cover" /><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:15px;margin-bottom:4px">Clinica Saúde+</div><p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Portal de saúde que triplicou o número de agendamentos online.</p><div style="font-size:11px;color:#818cf8;font-weight:600">Portal + Agendamento Online</div></div></div><div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all.3s"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" style="width:100%;height:180px;object-fit:cover" /><div style="padding:16px"><div style="font-family:var(--fp);font-weight:700;font-size:15px;margin-bottom:4px">Restaurante Sabor & Arte</div><p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">Cardápio digital que gerou mais de 500 pedidos no primeiro mês.</p><div style="font-size:11px;color:#818cf8;font-weight:600">Cardápio Digital + Integração WhatsApp</div></div></div></div></div><div style="margin-bottom:24px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:24px"><h3 style="font-family:var(--fp);font-size:18px;font-weight:700;margin-bottom:16px">Pacotes de Serviços</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px"><div style="background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center"><h4 style="font-size:16px;font-weight:700;margin-bottom:8px">Básico</h4><div style="font-family:var(--fp);font-size:28px;font-weight:800;color:#818cf8">R$ 1.000</div><ul style="list-style:none;margin:12px 0;text-align:left"><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Site institucional</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Design responsivo</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>SEO básico</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Suporte 30 dias</li></ul></div><div style="background:var(--glass);border:2px solid #818cf8;border-radius:var(--radius);padding:20px;text-align:center;position:relative"><span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#818cf8;color:#fff;font-size:10px;font-weight:700;padding:3px 12px;border-radius:50px">POPULAR</span><h4 style="font-size:16px;font-weight:700;margin-bottom:8px">Profissional</h4><div style="font-family:var(--fp);font-size:28px;font-weight:800;color:#818cf8">R$ 1.250</div><ul style="list-style:none;margin:12px 0;text-align:left"><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Tudo do Básico</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Catálogo de produtos</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Painel administrativo</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Integração WhatsApp</li></ul></div><div style="background:var(--glass);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center"><h4 style="font-size:16px;font-weight:700;margin-bottom:8px">Premium</h4><div style="font-family:var(--fp);font-size:28px;font-weight:800;color:#818cf8">R$ 1.500</div><ul style="list-style:none;margin:12px 0;text-align:left"><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Tudo do Profissional</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Sistema de agendamento</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Galeria avançada</li><li style="padding:4px 0;font-size:12px;color:var(--text-muted)"><i class="fas fa-check" style="color:#818cf8;margin-right:6px"></i>Suporte prioritário</li></ul></div></div></div></div>',
+ testimonials:[{s:'A We Are entregou um site institucional que superou todas as expectativas.Profissionalismo total.',a:'Marcos Vieira'},{s:'O catálogo de serviços no site facilitou muito o entendimento dos clientes.Resultado imediato!',a:'Luciana Pires'}]
+ }
+ ];
+
+ function init(){
+ hideLoading(); initParticles(); initNavbar(); initScrollReveal();
+ renderServices(); initPortfolio(); initPaymentPopup(); initCopyPix();
+ initSettings(); initDarkMode(); initContactForm(); initFaq(); initBackTop();
+ }
+
+ function hideLoading(){window.addEventListener('load',function(){setTimeout(function(){document.getElementById('loading').classList.add('hide')},2000)})}
+ function initParticles(){
+ var c=document.getElementById('particles-canvas');if(!c)return;var ctx=c.getContext('2d'),arr=[],mx=0,my=0;
+ function resize(){c.width=c.parentElement.offsetWidth;c.height=c.parentElement.offsetHeight}resize();window.addEventListener('resize',resize);
+ function P(){this.x=Math.random()*c.width;this.y=Math.random()*c.height;this.s=Math.random()*2+1;this.vx=(Math.random()-0.5)*0.5;this.vy=(Math.random()-0.5)*0.5;this.o=Math.random()*0.5+0.1}
+ P.prototype.update=function(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>c.width||this.y<0||this.y>c.height){this.x=Math.random()*c.width;this.y=Math.random()*c.height}var dx=this.x-mx,dy=this.y-my,d=Math.sqrt(dx*dx+dy*dy);if(d<120){this.x+=dx/d*0.5;this.y+=dy/d*0.5}};
+ P.prototype.draw=function(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);ctx.fillStyle='rgba(0,212,255,'+this.o+')';ctx.fill()};
+ for(var i=0;i<120;i++)arr.push(new P());
+ function animate(){ctx.clearRect(0,0,c.width,c.height);for(var i=0;i<arr.length;i++){arr[i].update();arr[i].draw()}for(var i=0;i<arr.length;i++){for(var j=i+1;j<arr.length;j++){var dx=arr[i].x-arr[j].x,dy=arr[i].y-arr[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<150){ctx.beginPath();ctx.moveTo(arr[i].x,arr[i].y);ctx.lineTo(arr[j].x,arr[j].y);ctx.strokeStyle='rgba(0,212,255,'+(0.08*(1-d/150))+')';ctx.lineWidth=0.5;ctx.stroke()}}}requestAnimationFrame(animate)}animate();
+ document.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
+ }
+ function initNavbar(){
+ var n=document.getElementById('navbar');window.addEventListener('scroll',function(){if(window.scrollY>50)n.classList.add('scrolled');else n.classList.remove('scrolled')});
+ document.getElementById('navToggle').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('open')});
+ var l=document.querySelectorAll('.nav-links a');for(var i=0;i<l.length;i++)l[i].addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open')});
+ }
+ function initScrollReveal(){
+ var els=document.querySelectorAll('.reveal');if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px 50px 0px'});for(var i=0;i<els.length;i++)obs.observe(els[i])}else{for(var i=0;i<els.length;i++)els[i].classList.add('visible')}
+ }
+function renderServices(){
+  var g=document.getElementById('servicesGrid');if(!g)return;
+  var services=[
+    {title:'Criação de Sites Profissionais',desc:'Site completo com design profissional, alta performance, SEO, responsividade, suporte técnico e painel administrativo.',price:'R$ 1.000,00 - R$ 1.500,00'},
+    {title:'E-commerce Premium',desc:'Loja virtual completa com catálogo de produtos, carrinho de compras, integração pagamento e gestão de estoque.',price:'R$ 1.500,00 - R$ 2.500,00'},
+    {title:'Site de Fidelidade',desc:'Programa de fidelidade digital com app, catálogo de recompensas e integração com WhatsApp.',price:'R$ 800,00 - R$ 1.200,00'},
+    {title:'Catálogo Digital',desc:'Catálogo interativo online com categorias, filtros e compartilhamento direto pelo WhatsApp.',price:'R$ 500,00 - R$ 800,00'},
+    {title:'Site de Festa',desc:'Site especial para festas com convidados, cronograma, lista de presença e galeria de fotos.',price:'R$ 400,00 - R$ 600,00'},
+    {title:'Site de Evento',desc:'Plataforma completa para eventos com inscrições, pagamento e painel de controle.',price:'R$ 1.200,00 - R$ 2.000,00'}
+  ];
+  for(var i=0;i<services.length;i++){
+    var s=services[i];var card=document.createElement('div');card.className='service-card reveal';card.innerHTML='<div class="service-icon"><i class="fas fa-globe"></i></div><h3>'+s.title+'</h3><p>'+s.desc+'</p><div class="service-price">'+s.price+'</div><button class="service-btn" data-index="'+i+'"><i class="fas fa-shopping-cart"></i> Contratar</button>';g.appendChild(card);var obs=new IntersectionObserver(function(entries,obs){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});obs.observe(card);}
+  }
+  function initPaymentPopup(){
+  var popup=document.getElementById('paymentPopup'),closeBtn=document.getElementById('popupClose'),sel=1000;
+  var servicesData=[
+    {title:'Criação de Sites Profissionais',desc:'Site completo com design profissional, alta performance, SEO, responsividade, suporte técnico e painel administrativo.',price:1000},
+    {title:'E-commerce Premium',desc:'Loja virtual completa com catálogo de produtos, carrinho de compras, integração pagamento e gestão de estoque.',price:1500},
+    {title:'Site de Fidelidade',desc:'Programa de fidelidade digital com app, catálogo de recompensas e integração com WhatsApp.',price:800},
+    {title:'Catálogo Digital',desc:'Catálogo interativo online com categorias, filtros e compartilhamento direto pelo WhatsApp.',price:500},
+    {title:'Site de Festa',desc:'Site especial para festas com convidados, cronograma, lista de presença e galeria de fotos.',price:400},
+    {title:'Site de Evento',desc:'Plataforma completa para eventos com inscrições, pagamento e painel de controle.',price:1200}
+  ];
+  document.addEventListener('click',function(e){var btn=e.target.closest('.service-btn');if(!btn)return;sel=servicesData[parseInt(btn.getAttribute('data-index'))].price;
+  var svc=servicesData[parseInt(btn.getAttribute('data-index'))];
+  document.getElementById('popupTitle').textContent=svc.title;
+  document.getElementById('popupDesc').textContent=svc.desc;
+  document.getElementById('popupPrice').textContent='R$ '+sel.toFixed(2).replace('.',',');
+  var opts=document.getElementById('priceOptions');opts.style.display='none';
+  attPopup(sel);popup.classList.add('active');document.body.style.overflow='hidden';
+  });
+  document.getElementById('priceOptions').addEventListener('click',function(e){var opt=e.target.closest('.price-option');if(!opt)return;sel=parseInt(opt.getAttribute('data-price'));
+  document.getElementById('popupPrice').textContent='R$ '+sel.toFixed(2).replace('.',',');
+  var btns=this.querySelectorAll('.price-option');for(var k=0;k<btns.length;k++)btns[k].classList.remove('active');opt.classList.add('active');attPopup(sel);
+  });
+  function attPopup(price){
+  document.getElementById('popupQr').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+encodeURIComponent(pixKey);
+  document.getElementById('comprovanteLink').href='https://wa.me/'+wpp+'etext=Ol%C3%A1!%20Vim%20pelo%20site%20da%20We%20Are%20e%20gostaria%20de%20contratar%20o%20servi%C3%A7o:%20'+encodeURIComponent(servicesData[0].title)+' (valor%20R$%20'+price.toFixed(2).replace('.',',')+').%20Segue%20comprovante%20de%20pagamento.';
+  }
+  closeBtn.addEventListener('click',function(){popup.classList.remove('active');document.body.style.overflow=''});
+  popup.addEventListener('click',function(e){if(e.target===this){this.classList.remove('active');document.body.style.overflow=''}});
+  }
+ var g=document.getElementById('portfolioGrid');if(!g)return;
+ for(var i=0;i<projects.length;i++){
+ var p=projects[i];var card=document.createElement('div');card.className='portfolio-card reveal';card.setAttribute('data-idx',i);
+ card.innerHTML='<div class="portfolio-thumb"><img src="'+p.cardImg+'" alt="'+p.name+'" loading="lazy" /><div class="overlay"><a href="#services" class="btn btn-primary" onclick="window.abrirPagina('+i+');return false">Ver Projeto</a></div></div><div class="portfolio-info"><h3>'+p.name+'</h3><p>'+p.desc+'</p><span class="tag">'+p.tagline+'</span></div>';
+ card.addEventListener('click',function(){abrirPagina(parseInt(this.getAttribute('data-idx')))});
+ g.appendChild(card);
+ var obs=new IntersectionObserver(function(entries,obs){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});obs.observe(card);
+ }
+ }
+ window.abrirPagina=function(idx){
+ var p=projects[idx];if(!p)return;
+ document.getElementById('mainContent').style.display='none';
+ var ov=document.getElementById('pageOverlay');ov.classList.add('active');document.body.style.overflow='hidden';
+ var pc=document.getElementById('pageContent');
+ var testimonialsHTML='';for(var t=0;t<p.testimonials.length;t++){testimonialsHTML+='<div class="pg-testimonial"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"'+p.testimonials[t].s+'"</p><div class="author">- '+p.testimonials[t].a+'</div></div>';}
+ var featsHTML='';for(var f=0;f<p.features.length;f++){featsHTML+='<div class="pg-feat"><i class="fas '+p.features[f].i+'"></i><h4>'+p.features[f].t+'</h4><p>'+p.features[f].d+'</p></div>';}
+ pc.innerHTML='<div class="pg-hero" style="--accent-color:'+p.accent+'"><div class="pg-hero-bg" style="background-image:url('+p.heroImg+')"></div><div class="pg-hero-content"><div class="badge" style="background:'+p.accentGrad+';color:#fff"><i class="fas fa-star"></i> '+p.badge+'</div><h1>'+p.heroTitle+'</h1><p>'+p.heroDesc+'</p><div class="actions">'+(p.link?'<a href="'+p.link+'" target="_blank" class="btn btn-primary" style="background:'+p.accentGrad+';color:#fff">'+p.heroBtnText+' <i class="fas fa-arrow-right"></i></a>':'')+'<a href="#services" class="btn btn-outline" style="border-color:rgba(255,255,255,0.3);color:#fff" onclick="window.fecharPagina()">Quero um assim</a></div></div></div><div class="pg-section" style="--accent-color:'+p.accent+'"><div class="pg-feat-grid">'+featsHTML+'</div></div>'+p.extraHTML+'<div class="pg-section" style="--accent-color:'+p.accent+'"><h3 class="pg-section-title">O que dizem <span>nossos clientes</span></h3>'+testimonialsHTML+'</div><div class="pg-cta"><button class="btn-voltar" onclick="window.fecharPagina()"><i class="fas fa-arrow-left"></i> Voltar ao portfolio</button></div>';
+ var reveals=ov.querySelectorAll('.reveal');for(var r=0;r<reveals.length;r++){if('IntersectionObserver' in window){var obs=new IntersectionObserver(function(entries,obs){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});obs.observe(reveals[r])}else{reveals[r].classList.add('visible')}}
+ ov.scrollTop=0;
+ // Init catalog filters
+ setTimeout(function(){
+ var filters=ov.querySelectorAll('.btn-filter');
+ for(var f=0;f<filters.length;f++){
+ filters[f].addEventListener('click',function(){
+ var cat=this.getAttribute('data-cat');
+ var section=this.closest('.pg-section');
+ if(!section)return;
+ var items=section.querySelectorAll('.catalog-item');
+ var btns=section.querySelectorAll('.btn-filter');
+ for(var b=0;b<btns.length;b++){
+ btns[b].style.background='transparent';btns[b].style.color='';
+ }
+ this.style.background='var(--bg-card)';this.style.color='var(--text)';
+ for(var i=0;i<items.length;i++){
+ if(cat==='todos'||items[i].getAttribute('data-cat')===cat){
+ items[i].style.display='';
+ }else{items[i].style.display='none'}
+ }
+ });
+ }
+ },100);
+ };
+ window.fecharPagina=function(){document.getElementById('pageOverlay').classList.remove('active');document.getElementById('mainContent').style.display='';document.body.style.overflow='';window.scrollTo({top:0,behavior:'smooth'})};
+ document.getElementById('pageFechar').addEventListener('click',window.fecharPagina);
+document.getElementById('fecharPagina').addEventListener('click',window.fecharPagina);
+
+var servicesData=[
+  {title:'Criação de Sites Profissionais',desc:'Site completo com design profissional, alta performance, SEO, responsividade, suporte técnico e painel administrativo.',price:1000},
+  {title:'E-commerce Premium',desc:'Loja virtual completa com catálogo de produtos, carrinho de compras, integração pagamento e gestão de estoque.',price:1500},
+  {title:'Site de Fidelidade',desc:'Programa de fidelidade digital com app, catálogo de recompensas e integração com WhatsApp.',price:800},
+  {title:'Catálogo Digital',desc:'Catálogo interativo online com categorias, filtros e compartilhamento direto pelo WhatsApp.',price:500},
+  {title:'Site de Festa',desc:'Site especial para festas com convidados, cronograma, lista de presença e galeria de fotos.',price:400},
+  {title:'Site de Evento',desc:'Plataforma completa para eventos com inscrições, pagamento e painel de controle.',price:1200}
+  ];
+  function initPaymentPopup(){
+  var popup=document.getElementById('paymentPopup'),closeBtn=document.getElementById('popupClose'),sel=1000;
+  document.addEventListener('click',function(e){var btn=e.target.closest('.service-btn');if(!btn)return;sel=servicesData[parseInt(btn.getAttribute('data-index'))].price;
+  var svc=servicesData[parseInt(btn.getAttribute('data-index'))];
+  document.getElementById('popupTitle').textContent=svc.title;
+  document.getElementById('popupDesc').textContent=svc.desc;
+  document.getElementById('popupPrice').textContent='R$ '+sel.toFixed(2).replace('.',',');
+  var opts=document.getElementById('priceOptions');opts.style.display='none';
+  attPopup(sel);popup.classList.add('active');document.body.style.overflow='hidden';
+  });
+  document.getElementById('priceOptions').addEventListener('click',function(e){var opt=e.target.closest('.price-option');if(!opt)return;sel=parseInt(opt.getAttribute('data-price'));
+  document.getElementById('popupPrice').textContent='R$ '+sel.toFixed(2).replace('.',',');
+  var btns=this.querySelectorAll('.price-option');for(var k=0;k<btns.length;k++)btns[k].classList.remove('active');opt.classList.add('active');attPopup(sel);
+  });
+  function attPopup(price){
+  document.getElementById('popupQr').src='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='+encodeURIComponent(pixKey);
+  document.getElementById('comprovanteLink').href='https://wa.me/'+wpp+'etext=Ol%C3%A1!%20Vim%20pelo%20site%20da%20We%20Are%20e%20gostaria%20de%20contratar%20o%20servi%C3%A7o:%20'+encodeURIComponent(servicesData[0].title)+' (valor%20R$%20'+price.toFixed(2).replace('.',',')+').%20Segue%20comprovante%20de%20pagamento.';
+  }
+  closeBtn.addEventListener('click',function(){popup.classList.remove('active');document.body.style.overflow=''});
+  popup.addEventListener('click',function(e){if(e.target===this){this.classList.remove('active');document.body.style.overflow=''}});
+  }
+ function initCopyPix(){
+ document.getElementById('copyPixBtn').addEventListener('click',function(){var el=this,orig=el.innerHTML;
+ function fb(){var ta=document.createElement('textarea');ta.value=pixKey;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);el.innerHTML='<i class="fas fa-check"></i> Chave PIX copiada!';setTimeout(function(){el.innerHTML=orig},2000)}
+ if(navigator.clipboard){navigator.clipboard.writeText(pixKey).then(function(){el.innerHTML='<i class="fas fa-check"></i> Chave PIX copiada!';setTimeout(function(){el.innerHTML=orig},2000)})['catch'](function(){fb()})}else{fb()}
+ });
+ }
+ function initSettings(){
+ var ov=document.getElementById('settingsOverlay');
+ document.getElementById('settingsBtn').addEventListener('click',function(){ov.classList.add('active');document.body.style.overflow='hidden';loadUserData()});
+ document.getElementById('settingsClose').addEventListener('click',function(){ov.classList.remove('active');document.body.style.overflow=''});
+ ov.addEventListener('click',function(e){if(e.target===this){this.classList.remove('active');document.body.style.overflow=''}});
+ var tabs=document.querySelectorAll('.settings-tab');for(var i=0;i<tabs.length;i++){tabs[i].addEventListener('click',function(){var a=document.querySelectorAll('.settings-tab');for(var j=0;j<a.length;j++)a[j].classList.remove('active');var c=document.querySelectorAll('.settings-content');for(var j=0;j<c.length;j++)c[j].classList.remove('active');this.classList.add('active');document.getElementById(this.getAttribute('data-tab')).classList.add('active')})}
+ document.getElementById('goToRegister').addEventListener('click',function(e){e.preventDefault();var a=document.querySelectorAll('.settings-tab');for(var j=0;j<a.length;j++)a[j].classList.remove('active');var c=document.querySelectorAll('.settings-content');for(var j=0;j<c.length;j++)c[j].classList.remove('active');document.querySelector('[data-tab="tabRegister"]').classList.add('active');document.getElementById('tabRegister').classList.add('active')});
+ document.getElementById('registerForm').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('regName').value.trim(),em=document.getElementById('regEmail').value.trim(),ph=document.getElementById('regPhone').value.trim(),pw=document.getElementById('regPassword').value;var er=document.getElementById('regError'),sc=document.getElementById('regSuccess');er.style.display='none';sc.style.display='none';if(!n||!em||!pw||pw.length<6){er.textContent='Preencha todos os campos obrigatorios.';er.style.display='block';return}localStorage.setItem('weare_user',JSON.stringify({name:n,email:em,phone:ph,password:pw}));sc.style.display='block';this.reset();setTimeout(function(){sc.style.display='none';var a=document.querySelectorAll('.settings-tab');for(var j=0;j<a.length;j++)a[j].classList.remove('active');var c=document.querySelectorAll('.settings-content');for(var j=0;j<c.length;j++)c[j].classList.remove('active');document.querySelector('[data-tab="tabLogin"]').classList.add('active');document.getElementById('tabLogin').classList.add('active')},1500)});
+ document.getElementById('loginForm').addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('loginEmail').value.trim(),pw=document.getElementById('loginPassword').value;var u=JSON.parse(localStorage.getItem('weare_user')||'{}');if(u.email===em&&u.password===pw){localStorage.setItem('weare_logged','true');document.getElementById('loginError').style.display='none';var b=this.querySelector('.btn');b.innerHTML='<i class="fas fa-check"></i> Logado!';setTimeout(function(){b.innerHTML='<i class="fas fa-sign-in-alt"></i> Entrar';var a=document.querySelectorAll('.settings-tab');for(var j=0;j<a.length;j++)a[j].classList.remove('active');var c=document.querySelectorAll('.settings-content');for(var j=0;j<c.length;j++)c[j].classList.remove('active');document.querySelector('[data-tab="tabProfile"]').classList.add('active');document.getElementById('tabProfile').classList.add('active');loadUserData()},1000)}else{document.getElementById('loginError').style.display='block'}});
+ }
+ function loadUserData(){
+ var lg=localStorage.getItem('weare_logged')==='true',u=JSON.parse(localStorage.getItem('weare_user')||'{}');
+ if(lg&&u.name){document.getElementById('profileName').value=u.name||'';document.getElementById('profileEmail').value=u.email||'';document.getElementById('profilePhone').value=u.phone||'';var hd=document.getElementById('historyList'),h=JSON.parse(localStorage.getItem('weare_history')||'[]');if(h.length===0)hd.innerHTML='<p style="color:var(--text-muted);font-size:14px">Nenhum serviço contratado ainda.</p>';else{var html='';for(var i=0;i<h.length;i++)html+='<div class="history-item"><span>'+h[i].service+'</span><span>'+h[i].date+'</span><span class="status">'+h[i].status+'</span></div>';hd.innerHTML=html}}else{document.getElementById('profileName').value='';document.getElementById('profileEmail').value='';document.getElementById('profilePhone').value='';document.getElementById('historyList').innerHTML='<p style="color:var(--text-muted);font-size:14px">Faca login para ver seus dados.</p>'}
+ }
+ function initDarkMode(){document.getElementById('darkModeToggle').addEventListener('click',function(){this.classList.toggle('active');document.body.classList.toggle('light-mode')})}
+ function initContactForm(){document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();var b=this.querySelector('.btn'),o=b.innerHTML;b.innerHTML='<i class="fas fa-spinner fa-spin"></i> Enviando...';setTimeout(function(){b.innerHTML='<i class="fas fa-check"></i> Mensagem enviada!';this.reset();setTimeout(function(){b.innerHTML=o},2000)}.bind(this),1200)})}
+ function initFaq(){var items=document.querySelectorAll('.faq-q');for(var i=0;i<items.length;i++){items[i].addEventListener('click',function(){var p=this.parentElement,was=p.classList.contains('active');var all=document.querySelectorAll('.faq-item');for(var j=0;j<all.length;j++)all[j].classList.remove('active');if(!was)p.classList.add('active')})}}
+ function initBackTop(){document.getElementById('backTop').addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})}
+ document.addEventListener('DOMContentLoaded',init);
+ })();
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
