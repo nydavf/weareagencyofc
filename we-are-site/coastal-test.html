@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NovaTech — Consultoria em Tecnologia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--accent:#fdb042;--bg:#000;--bg2:#0d0d0d;--bg3:#141414;--text:#fff;--text-muted:#9ca3af;--border:rgba(255,255,255,0.08);--radius:12px;--shadow:0 8px 32px rgba(0,0,0,0.5);--font-serif:'Caladea',serif;--font-sans:'Inter',sans-serif}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--font-serif);font-weight:700;letter-spacing:-0.02em}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+section{padding:80px 0;position:relative}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:4px;font-family:var(--font-sans);font-weight:600;font-size:14px;cursor:pointer;transition:all 0.3s;border:2px solid var(--accent);text-transform:uppercase;letter-spacing:1px}
+.btn-primary{background:var(--accent);color:#000;border-color:var(--accent)}
+.btn-primary:hover{background:transparent;color:var(--accent)}
+.btn-outline{background:transparent;color:var(--accent);border-color:var(--accent)}
+.btn-outline:hover{background:var(--accent);color:#000}
+.section-title{font-size:22px;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px}
+.section-desc{color:var(--text-muted);font-size:15px;line-height:1.7;max-width:700px;margin:0 auto}
+
+/* Nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:9999;padding:12px 2rem;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:1px solid #eee}
+.nav-logo{font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:#000}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{font-size:13px;font-weight:600;color:#555;letter-spacing:0.5px;text-transform:uppercase;transition:color 0.3s}
+.nav-links a:hover{color:var(--accent)}
+
+/* Hero */
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;background:linear-gradient(135deg,#000 0%,#111 50%,#000 100%)}
+.hero-bg-img{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0.3;background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80')}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.85) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.85) 100%)}
+.hero-content{position:relative;z-index:1;max-width:800px}
+.hero-badge{display:inline-block;padding:6px 16px;background:var(--accent);color:#000;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;border-radius:2px}
+.hero h1{font-size:clamp(2rem,4vw,3.5rem);line-height:1.15;margin-bottom:20px;color:#fff}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:16px;color:rgba(255,255,255,0.7);max-width:650px;margin:0 auto 32px;line-height:1.8}
+.hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* Articles */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.article-card{background:var(--bg3);border:1px solid var(--border);overflow:hidden;transition:all 0.3s}
+.article-card:hover{border-color:rgba(253,176,66,0.2);transform:translateY(-4px)}
+.article-img{width:100%;height:180px;object-fit:cover;display:block}
+.article-body{padding:20px}
+.article-body h3{font-size:16px;margin-bottom:8px}
+.article-body p{color:var(--text-muted);font-size:13px;line-height:1.5;margin-bottom:12px}
+.article-body .read-more{color:var(--accent);font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+
+/* About */
+.about-text{max-width:800px;margin:0 auto;text-align:center}
+.about-text p{color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:16px}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.service-card{background:var(--bg3);border:1px solid var(--border);padding:24px;transition:all 0.3s}
+.service-card:hover{border-color:rgba(253,176,66,0.2);transform:translateY(-4px)}
+.service-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent);margin-bottom:12px}
+.service-card h3{font-size:16px;margin-bottom:8px}
+.service-card p{color:var(--text-muted);font-size:13px;line-height:1.6}
+
+/* CTA Banner */
+.cta-banner{background:var(--accent);padding:60px 2rem;text-align:center}
+.cta-banner h2{font-size:26px;color:#000;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.cta-banner p{color:rgba(0,0,0,0.7);font-size:15px;max-width:600px;margin:0 auto 24px;line-height:1.7}
+.cta-banner .btn{background:#000;color:var(--accent);border-color:#000}
+.cta-banner .btn:hover{background:transparent;color:#000;border-color:#000}
+
+/* Clients / Partners */
+.clients-grid{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;align-items:center}
+.client-logo{background:var(--bg3);border:1px solid var(--border);padding:20px 32px;text-align:center;min-width:140px;transition:all 0.3s}
+.client-logo:hover{border-color:rgba(253,176,66,0.2)}
+.client-logo i{font-size:28px;color:var(--text-muted);margin-bottom:4px;display:block}
+.client-logo span{font-size:12px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase}
+
+/* Portfolio Gallery */
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.portfolio-item{position:relative;overflow:hidden;border-radius:4px}
+.portfolio-item img{width:100%;height:200px;object-fit:cover;transition:transform 0.6s;display:block}
+.portfolio-item:hover img{transform:scale(1.06)}
+.portfolio-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:16px}
+.portfolio-item:hover .overlay{opacity:1}
+.portfolio-item .overlay span{color:#fff;font-size:13px;font-weight:600}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info p{color:var(--text-muted);font-size:14px;line-height:1.7;margin-bottom:24px}
+.contact-detail{margin-bottom:16px}
+.contact-detail .label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px}
+.contact-detail .value{font-size:14px;font-weight:600}
+.contact-detail .value i{margin-right:8px;color:var(--accent);width:16px}
+.contact-form{display:grid;gap:12px}
+.contact-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 14px;background:var(--bg3);border:1px solid var(--border);font-family:var(--font-sans);font-size:13px;color:var(--text);outline:none;transition:all 0.3s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{height:100px;resize:vertical}
+.contact-form label{font-size:12px;color:var(--text-muted);margin-bottom:4px;display:block}
+
+/* Footer */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 2rem 20px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:var(--text-muted);transition:color 0.3s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{text-align:center;padding-top:20px;margin-top:20px;border-top:1px solid var(--border);color:rgba(255,255,255,0.2);font-size:12px}
+.footer-bottom a{color:var(--text-muted);margin:0 8px}
+.footer-bottom a:hover{color:var(--accent)}
+
+/* Animations */
+.fade-in{opacity:0;transform:translateY(30px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Responsive */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .contact-grid{grid-template-columns:1fr}
+  .contact-form .form-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Nova<span>Tech</span></div>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#articles">Articles</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Technology Consulting</div>
+    <h1>Digital Solutions — <span>Built for Business</span></h1>
+    <p>Delivering web development, cloud infrastructure, AI solutions, and digital strategy for companies that demand performance, security, and innovation.</p>
+    <div class="hero-buttons">
+      <a href="#articles" class="btn btn-primary">Read More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTICLES ===== -->
+<section id="articles" style="background:var(--bg2)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 class="section-title">Articles</h2>
+    </div>
+    <div class="articles-grid">
+      <div class="article-card fade-in">
+        <img class="article-img" src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80" alt="Article" loading="lazy" />
+        <div class="article-body">
+          <h3>9 Steps To Starting a Business</h3>
+          <p>This is a generic article you can use for adding article content / subjects on your website.</p>
+          <span class="read-more">Read More <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </div>
+      <div class="article-card fade-in" style="transition-delay:0.05s">
+        <img class="article-img" src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80" alt="Article" loading="lazy" />
+        <div class="article-body">
+          <h3>7 Big Things A Start-Up Must Have</h3>
+          <p>This is a generic article you can use for adding article content / subjects on your website.</p>
+          <span class="read-more">Read More <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </div>
+      <div class="article-card fade-in" style="transition-delay:0.1s">
+        <img class="article-img" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=600&q=80" alt="Article" loading="lazy" />
+        <div class="article-body">
+          <h3>How To Make Extra Money</h3>
+          <p>This is a generic article you can use for adding article content / subjects on your website.</p>
+          <span class="read-more">Read More <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </div>
+      <div class="article-card fade-in" style="transition-delay:0.15s">
+        <img class="article-img" src="https://images.unsplash.com/photo-1553729459-afe8f2e2e8cf?w=600&q=80" alt="Article" loading="lazy" />
+        <div class="article-body">
+          <h3>Boost Your Income</h3>
+          <p>This is a generic article you can use for adding article content / subjects on your website.</p>
+          <span class="read-more">Read More <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </div>
+      <div class="article-card fade-in" style="transition-delay:0.2s">
+        <img class="article-img" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80" alt="Article" loading="lazy" />
+        <div class="article-body">
+          <h3>How To Motivate Employees</h3>
+          <p>This is a generic article you can use for adding article content / subjects on your website.</p>
+          <span class="read-more">Read More <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </div>
+      <div class="article-card fade-in" style="transition-delay:0.25s">
+        <img class="article-img" src="https://images.unsplash.com/photo-1572025442646-866d16c84a54?w=600&q=80" alt="Article" loading="lazy" />
+        <div class="article-body">
+          <h3>How To Pick a Name For Your Startup</h3>
+          <p>This is a generic article you can use for adding article content / subjects on your website.</p>
+          <span class="read-more">Read More <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:32px">
+      <h2 class="section-title">About Us</h2>
+    </div>
+    <div class="about-text fade-in">
+      <p>With over 12 years of technology experience, NovaTech supports companies, startups, and public agencies with precision-driven digital solutions. From web development and cloud infrastructure to AI integration and digital strategy, we deliver technically sound, production-ready solutions that keep projects compliant and on schedule.</p>
+      <p>Certified as a technology partner for multiple industry verticals, NovaTech is built to support both startups and large-scale enterprise programs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="services" style="background:var(--bg2)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 class="section-title">Services</h2>
+      <p class="section-desc">Unlock Seamless Project Execution with Our Comprehensive Technical and Digital Services.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Web Development</h3>
+        <p>Custom websites, e-commerce platforms, and web applications built with modern technologies for performance and scalability.</p>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.05s">
+        <div class="service-icon"><i class="fas fa-cloud"></i></div>
+        <h3>Cloud Infrastructure</h3>
+        <p>Cloud migration, server management, and scalable hosting solutions with 24/7 monitoring and support.</p>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.1s">
+        <div class="service-icon"><i class="fas fa-robot"></i></div>
+        <h3>AI & Automation</h3>
+        <p>Integration of artificial intelligence, machine learning models, and workflow automation for operational efficiency.</p>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.15s">
+        <div class="service-icon"><i class="fas fa-search"></i></div>
+        <h3>Digital Strategy & SEO</h3>
+        <p>Data-driven marketing strategies, search engine optimization, and paid traffic management to grow your online presence.</p>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.2s">
+        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Cybersecurity</h3>
+        <p>Security audits, threat protection, LGPD compliance, and backup automation to keep your data safe.</p>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.25s">
+        <div class="service-icon"><i class="fas fa-database"></i></div>
+        <h3>Data & Analytics</h3>
+        <p>Business intelligence dashboards, data pipeline engineering, and real-time analytics for informed decision-making.</p>
+      </div>
+      <div class="service-card fade-in" style="transition-delay:0.3s">
+        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Mobile Development</h3>
+        <p>Native and cross-platform mobile applications with intuitive UX and seamless backend integration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA / WORK WITH US ===== -->
+<section class="cta-banner">
+  <h2>Work With Us</h2>
+  <p>Choose a certified technology partner trusted on complex digital programs. We deliver web, cloud, AI, and strategy solutions — executed with precision and accountability. Built for compliance. Designed for results.</p>
+  <a href="#contact" class="btn">Contact Us</a>
+</section>
+
+<!-- ===== CLIENTS ===== -->
+<section id="clients">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:32px">
+      <h2 class="section-title">Our Clients</h2>
+    </div>
+    <div class="clients-grid fade-in">
+      <div class="client-logo"><i class="fas fa-building"></i><span>TechCorp</span></div>
+      <div class="client-logo"><i class="fas fa-store"></i><span>BuildCon</span></div>
+      <div class="client-logo"><i class="fas fa-hospital"></i><span>Saúde+</span></div>
+      <div class="client-logo"><i class="fas fa-university"></i><span>FinGroup</span></div>
+      <div class="client-logo"><i class="fas fa-graduation-cap"></i><span>EduPlus</span></div>
+      <div class="client-logo"><i class="fas fa-truck"></i><span>LogTech</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PORTFOLIO ===== -->
+<section id="portfolio" style="background:var(--bg2)">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:32px">
+      <h2 class="section-title">Portfolio</h2>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item fade-in">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80" alt="Project" loading="lazy" />
+        <div class="overlay"><span>E-commerce Platform</span></div>
+      </div>
+      <div class="portfolio-item fade-in" style="transition-delay:0.05s">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="Project" loading="lazy" />
+        <div class="overlay"><span>FinApp Mobile</span></div>
+      </div>
+      <div class="portfolio-item fade-in" style="transition-delay:0.1s">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80" alt="Project" loading="lazy" />
+        <div class="overlay"><span>Cloud Migration</span></div>
+      </div>
+      <div class="portfolio-item fade-in" style="transition-delay:0.15s">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&q=80" alt="Project" loading="lazy" />
+        <div class="overlay"><span>AI Dashboard</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <h2 class="section-title">Contact us today</h2>
+      <p class="section-desc">To learn more about how our technical and digital services can help you achieve your project goals efficiently and effectively.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <div class="contact-detail">
+          <div class="label">Email</div>
+          <div class="value"><i class="fas fa-envelope"></i> contato@novatech.com.br</div>
+        </div>
+        <div class="contact-detail">
+          <div class="label">Contact Info</div>
+          <div class="value"><i class="fas fa-phone"></i> +1-760-407-2321</div>
+        </div>
+        <div class="contact-detail">
+          <div class="label">Address</div>
+          <div class="value"><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000, São Paulo, SP, Brazil</div>
+        </div>
+        <div class="contact-detail">
+          <div class="label">Hours</div>
+          <div class="value"><i class="fas fa-clock"></i> Monday – Friday 7:00am – 5pm<br>Saturday/Sunday - Closed</div>
+        </div>
+      </div>
+      <form class="contact-form fade-in" onsubmit="event.preventDefault();alert('Thank you! We will contact you soon.')">
+        <div class="form-row">
+          <div><label>First Name *</label><input type="text" required /></div>
+          <div><label>Last Name *</label><input type="text" required /></div>
+        </div>
+        <div><label>Phone</label><input type="tel" /></div>
+        <div><label>Email address *</label><input type="email" required /></div>
+        <div>
+          <label>What are you looking for?</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;color:var(--text-muted)">
+            <label><input type="checkbox" /> Design and Drafting</label>
+            <label><input type="checkbox" /> Utility Conversion</label>
+            <label><input type="checkbox" /> Fiber & coax routing</label>
+            <label><input type="checkbox" /> Mapping</label>
+            <label><input type="checkbox" /> Photosimulating</label>
+            <label><input type="checkbox" /> 3D modeling</label>
+            <label><input type="checkbox" /> Survey and Review</label>
+            <label><input type="checkbox" /> Make-ready Field Walk Out</label>
+            <label><input type="checkbox" /> Permitting</label>
+            <label><input type="checkbox" /> Job Opportunities</label>
+            <label><input type="checkbox" /> Other</label>
+          </div>
+        </div>
+        <div><label>Message</label><textarea></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Contact Us</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="nav-logo">Nova<span>Tech</span></div>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#articles">Articles</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    Copyright &copy; 2026 All rights reserved — NovaTech
+    <span style="margin:0 8px">|</span>
+    <a href="#">Terms of Use</a>
+    <span style="margin:0 8px">|</span>
+    <a href="#">PRIVACY POLICY</a>
+    <span style="margin:0 8px">|</span>
+    <a href="#">ACCESSIBILITY STATEMENT</a>
+  </div>
+</footer>
+
+<script>
+function initFadeIns(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el))
+}
+document.addEventListener('DOMContentLoaded',initFadeIns);
+</script>
+</body>
+</html>
